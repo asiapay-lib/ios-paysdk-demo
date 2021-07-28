@@ -65,9 +65,9 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
      
     }
 ```
-* Note: On successfull transaction orderRef and payref will get in PayResult as url.
+* Note: On successfull transaction orderRef and payref will get in callback as url.
 
-Use orderRef and payref from PayResult to check [Transaction Status](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/TRANSQUERY).
+Use orderRef and payref from callback url to check [Transaction Status](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/TRANSQUERY).
 
 
 
