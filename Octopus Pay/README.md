@@ -57,19 +57,17 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
 [paySDK process];
 ```
 
-### Payment response
-* Swift Code
-```
-extension ViewController : PaySDKDelegate {
-func transQueryResults(result: TransQueryResults) {
-      //PROCESS RESPONSE
-      }
-}
-```
-*Objective C Code
-```
-- (void)transQueryResultsWithResult:(TransQueryResults * _Nonnull)result {
-        //PROCESS RESPONSE
-}
+### Collect Payment Result
 
 ```
+    func paymentResult(result: PayResult) {
+     //process result here
+     
+    }
+```
+* Note: On successfull transaction orderRef and payref will get in PayResult as url.
+
+Use orderRef and payref from PayResult to check [Transaction Status](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/TRANSQUERY).
+
+
+

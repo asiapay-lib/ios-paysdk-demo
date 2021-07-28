@@ -25,6 +25,79 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+    <key>paydollar.com</key>
+    <dict>
+    <key>NSIncludesSubdomains</key>
+    <true/>
+    <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+    <true/>
+    <key>NSTemporaryExceptionMinimumTLSVersion</key>
+    <string>TLSv1.0</string>
+    <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+    <false/>
+    </dict>
+    <key>xecure3d.com</key>
+    <dict>
+    <key>NSIncludesSubdomains</key>
+    <true/>
+    <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+    <true/>
+    <key>NSTemporaryExceptionMinimumTLSVersion</key>
+    <string>TLSv1.0</string>
+    <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+    <false/>
+    </dict>
+    <key>pesopay.com</key>
+    <dict>
+    <key>NSIncludesSubdomains</key>
+    <true/>
+    <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+    <true/>
+    <key>NSTemporaryExceptionMinimumTLSVersion</key>
+    <string>TLSv1.0</string>
+    <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+    <false/>
+    </dict>
+    <key>siampay.com</key>
+    <dict>
+    <key>NSIncludesSubdomains</key>
+    <true/>
+    <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+    <true/>
+    <key>NSTemporaryExceptionMinimumTLSVersion</key>
+    <string>TLSv1.0</string>
+    <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+    <false/>
+    </dict>
+    <key>alipay.com</key>
+    <dict>
+    <key>NSIncludesSubdomains</key>
+    <true/>
+    <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+    <true/>
+    <key>NSTemporaryExceptionMinimumTLSVersion</key>
+    <string>TLSv1.0</string>
+    <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+    <false/>
+    </dict>
+    <key>alipayobjects.com</key>
+    <dict>
+    <key>NSIncludesSubdomains</key>
+    <true/>
+    <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+    <true/>
+    <key>NSTemporaryExceptionMinimumTLSVersion</key>
+    <string>TLSv1.0</string>
+    <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+    <false/>
+    </dict>
+    </dict>
+    </dict>
+
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>
