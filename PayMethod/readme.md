@@ -6,7 +6,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount :“1”,
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode: currencyCode.HKD,
+                                currCode: CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: "2018102409220001”,
                                 payMethod: "VISA",
@@ -14,7 +14,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 merchantId: "88146271",
                                 remark: "",
                                 payRef: "",
-                                resultpage: "F"
+                                resultpage: "F",
+                                showCloseButton: false,
                                 extraData : [])
                                 
 paySDK.query(action: "PAYMENT_METHOD")
@@ -40,6 +41,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelNONE
                                          remark: @"123"
                                          payRef: @""
                                          resultpage: resultPage
+                                         showCloseButton: false
                                          extraData: nil];
 
 [paySDK queryWithAction:@"PAYMENT_METHOD"];

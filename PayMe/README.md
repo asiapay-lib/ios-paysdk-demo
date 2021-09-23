@@ -7,13 +7,16 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount: 0.1,
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode: currencyCode.HKD,
+                                currCode: CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: String(format: "%.0f", NSDate().timeIntervalSince1970 * 1000),
                                 payMethod: "PayMe",
                                 lang: Language.ENGLISH,
                                 merchantId: "1",
                                 remark: "test",
+                                payRef: "",
+                                resultpage: resultPage,
+                                showCloseButton: false,
                                 extraData : [:])
 
 paysdk.paymentDetails.callBackParam = CallBackParam(successUrl: "xxx://abc//success",
@@ -38,11 +41,15 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          lang: LanguageENGLISH 
                                          merchantId: 1 
                                          remark: @"test" 
+                                         payRef: ""
+                                         resultpage: resultPage
+                                         showCloseButton: false
                                          extraData: nil];
                                          
 
-paySDK.paymentDetails.callBackParam = [[CallBackParam alloc] initWithsuccessUrl: @"xxx://abc//success",                                                               cancelUrl: @"xxx://abc//cancelled",
-                                                             errorUrl: @"xxx://abc//error",
+paySDK.paymentDetails.callBackParam = [[CallBackParam alloc] initWithsuccessUrl: @"xxx://abc//success"
+                                                             cancelUrl: @"xxx://abc//cancelled"
+                                                             errorUrl: @"xxx://abc//error"
                                                              failUrl: @"xxx://abc//fail"];
 
 

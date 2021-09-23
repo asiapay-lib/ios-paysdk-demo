@@ -29,7 +29,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount: "10",
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode:currencyCode.HKD,
+                                currCode:CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: "560200353Ref",
                                 payMethod: "APPLEPAY",
@@ -38,6 +38,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 remark: "test",
                                 payRef: "",
                                 resultpage: "F",
+                                showCloseButton: false,
                                 extraData : ["apple_countryCode" : "HK",
                                              "apple_currencyCode" : "HKD",
                                              "apple_billingContactEmail" : "abc@gmail.com",
@@ -78,6 +79,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          remark: @"test"
                                          payRef: @""
                                          resultpage: resultPage
+                                         showCloseButton: false
                                          extraData: arr];
 
 [paySDK process];
@@ -122,6 +124,7 @@ paysdk.paymentDetails = PayData(channelType: .DIRECT,
                                 remark: "123",
                                 payRef: "",
                                 resultpage: resultPage,
+                                showCloseButton: false,
                                 extraData: ["eWalletPaymentData" : b64TokenStr])
 paysdk.process()
 ```
@@ -162,6 +165,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          remark: @"test"
                                          payRef: @""
                                          resultpage: resultPage
+                                         showCloseButton: false
                                          extraData: arr];
 
 [paySDK process];

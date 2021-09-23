@@ -15,7 +15,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount :“1”,
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode: currencyCode.HKD,
+                                currCode: CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: "2018102409220001”,
                                 payMethod: "VISA",
@@ -24,6 +24,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 remark: "",
                                 payRef: "", 
                                 resultpage: "F",
+                                showCloseButton: false,
                                 extraData: ["addNewMember": true,
                                             "memberPay_service": "T",
                                             "memberPay_memberId": "Member01",
@@ -63,6 +64,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT  
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: @"F" 
+                                         showCloseButton: false,
                                          extraData: extraData];
 
 [paySDK process];
@@ -89,6 +91,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 remark: "",
                                 payRef: "",
                                 resultpage: "F",
+                                showCloseButton: false,
                                 extraData: ["addNewMember": false,
                                             "memberPay_service": "T",
                                             "memberPay_memberId": "Member01",
@@ -128,6 +131,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT  
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: @"F" 
+                                         showCloseButton: false,
                                          extraData: extraData];
 
 [paySDK process];

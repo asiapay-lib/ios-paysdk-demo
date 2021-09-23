@@ -12,7 +12,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount :“1”,
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode: currencyCode.HKD,
+                                currCode: CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: "2018102409220001”,
                                 payMethod: "VISA",
@@ -21,6 +21,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 remark: "",
                                 payRef: "", 
                                 resultpage: "F",
+                                showCloseButton: false,
                                 extraData: ["installment_service " : "T",
                                             "installment_period": 3,
                                             "installOnly": "T"])
@@ -59,6 +60,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT  
                                          remark: @""
                                          payRef: @""
                                          resultpage: @"F" 
+                                         showCloseButton: false,
                                          extraData: extraData];
 
 [paySDK process];

@@ -18,7 +18,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount: 0.1,
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode: currencyCode.HKD,
+                                currCode: CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: "2018102409220001",
                                 payMethod: "OCTOPUS",
@@ -27,6 +27,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 remark: "test",
                                 payRef: "",
                                 resultpage: "F",
+                                showCloseButton: false,
                                 extraData : [:])
 
 paySDK.process()
@@ -51,7 +52,8 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
                                          merchantId: merchantId 
                                          remark: @"" 
                                          payRef: @"" 
-                                         resultpage: @"F" 
+                                         resultpage: @"F"
+                                         showCloseButton: false,
                                          extraData: nil];
 
 [paySDK process];

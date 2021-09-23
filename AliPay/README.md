@@ -23,7 +23,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount: "10",
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode:currencyCode.HKD,
+                                currCode:CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: "560200353Ref",
                                 payMethod: "ALIPAYHKAPP", // FOR ALIPAY HK
@@ -34,6 +34,7 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 remark: "test",
                                 payRef: "",
                                 resultPage: "F",
+                                showCloseButton: false,
                                 extraData : [:])
 
 paySDK.process();
@@ -57,6 +58,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: @"F" 
+                                         showCloseButton: false,
                                          extraData: nil];
 
 [paySDK process];

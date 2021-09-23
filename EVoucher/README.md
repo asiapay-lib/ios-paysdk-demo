@@ -11,7 +11,7 @@ paySDK.paymentDetails = PayData(channelType : PayChannel.WEBVIEW,
                                 envType : EnvType.SANDBOX,
                                 amount :"1"
                                 payGate : PayGate.PAYDOLLAR,
-                                currCode : currencyCode.HKD,
+                                currCode : CurrencyCode.HKD,
                                 payType : payType.NORMAL_PAYMENT,
                                 orderRef : “2018102409220001”,
                                 payMethod : "CC",
@@ -20,6 +20,7 @@ paySDK.paymentDetails = PayData(channelType : PayChannel.WEBVIEW,
                                 remark : "",
                                 payRef: "",
                                 resultpage: "F",
+                                showCloseButton: false,
                                 extraData: extraData)
 
                 
@@ -46,6 +47,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: @"F" 
+                                         showCloseButton: false,
                                          extraData: nil];
 
 [paySDK process];

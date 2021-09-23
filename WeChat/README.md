@@ -46,13 +46,16 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount: 0.1,
                                 payGate: PayGate.PAYDOLLAR,
-                                currCode: currencyCode.HKD,
+                                currCode: CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: "2018102409220001",
                                 payMethod: "WECHATAPP",
                                 lang: Language.ENGLISH,
                                 merchantId: "1",
                                 remark: "test",
+                                payRef: "",
+                                resultpage: @"F",
+                                showCloseButton: false,
                                 extraData : ["weChatUniversalLink":"https://<domain-name>.com"])
                                 
 paySDK.process()
@@ -78,6 +81,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: @"F" 
+                                         showCloseButton: false
                                          extraData: nil];
 
 [paySDK process];
