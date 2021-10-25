@@ -175,7 +175,7 @@ let nextButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3
 let continueButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
 let labelCustomization = LabelCustomization("Courier", "FF0000", 14, "FF0000", "Courier", 20)
 let textboxCustomization = TextBoxCustomization("Courier", "#FF0000", 14, 5, "#d3d3d3", 4)
-let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "")
+let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "Header Text", "Close Button Text"))
 
 try! customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
 try! customization.setButtonCustomization(resendButtonCustomization, .RESEND)
@@ -200,7 +200,7 @@ ButtonCustomization *nextButtonCustomization = [[ButtonCustomization alloc] init
 ButtonCustomization *continueButtonCustomization = [[ButtonCustomization alloc] init:@"Courier" :@"#FF0000" :15 :@"#d3d3d3" :4];
 LabelCustomization *labelCustomization = [[LabelCustomization alloc] init:@"Courier" :@"#FF0000" :14 :@"#FF0000":@"Courier" :20];
 TextBoxCustomization *textBoxCustomization = [[TextBoxCustomization alloc] init:@"Courier" :@"FF0000" :14 :4 :@"FF0000" :4];
-ToolbarCustomization *toolbarCustomization = [[ToolbarCustomization alloc] init:@"Courier" :@"#FFFFFF" :20 :@"#000000" :@"Payment Page"];
+ToolbarCustomization *toolbarCustomization = [[ToolbarCustomization alloc] init:@"Courier" :@"#FFFFFF" :20 :@"#000000" :@"Payment Page", @"Close Button Text")];
  
 NSError *err;
 
@@ -245,6 +245,19 @@ Payment Methods Query | [Payment Methods Query](https://github.com/asiapay-lib/p
     func paymentResult(result: PayResult) {
      //process result here
      
+    }
+    
+    //PaySDK will trigger payment result handle with failed status at WebView integration if the requested url scheme is failed to trigger.
+
+    //Merchant can prompt the message for this case and ignore the result handle if they received the error message started with "No app installed to handle the request"
+
+
+    func paymentResult(result: PayResult) {
+            if (result.errMsg.starts(with: "No app installed to handle the request with scheme")) {
+                    // ignore the result or prompt the app is not installed
+            } else {
+                    // process fail or success result here
+            }
     }
     
 ```

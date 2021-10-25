@@ -56,6 +56,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultpage: @"F",
                                 showCloseButton: false,
+                                showToolbar: true,
+                                webViewClosePrompt: "",
                                 extraData : ["weChatUniversalLink":"https://<domain-name>.com"])
                                 
 paySDK.process()
@@ -82,7 +84,9 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          payRef: @"" 
                                          resultpage: @"F" 
                                          showCloseButton: false
-                                         extraData: nil];
+                                         showToolbar: true
+                                         webViewClosePrompt: @""
+                                         extraData: extraData];
 
 [paySDK process];
 ```

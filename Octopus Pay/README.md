@@ -28,6 +28,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultpage: "F",
                                 showCloseButton: false,
+                                showToolbar: true,
+                                webViewClosePrompt: "",
                                 extraData : [:])
 
 paySDK.process()
@@ -54,6 +56,8 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
                                          payRef: @"" 
                                          resultpage: @"F"
                                          showCloseButton: false,
+                                         showToolbar: true
+                                         webViewClosePrompt: @""
                                          extraData: nil];
 
 [paySDK process];
@@ -66,6 +70,20 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
      //process result here
      
     }
+
+
+//PaySDK will trigger payment result handle with failed status at WebView integration if the requested url scheme is failed to trigger.
+
+//Merchant can prompt the message for this case and ignore the result handle if they received the error message started with "No app installed to handle the request"
+
+
+func paymentResult(result: PayResult) {
+        if (result.errMsg.starts(with: "No app installed to handle the request with scheme")) {
+                // ignore the result or prompt the app is not installed
+        } else {
+                // process fail or success result here
+        }
+}
 ```
 * Note: On successfull transaction orderRef and payref will get in callback as url.
 

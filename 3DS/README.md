@@ -17,7 +17,10 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultpage: "F",
                                 showCloseButton: false,
-                                extraData :[:])
+                                showToolbar: true,
+                                webViewClosePrompt: "",
+                                extraData: [:])
+
 
 paySDK.paymentDetails.cardDetails = CardDetails(cardHolderName: “abcabc”,
                                                 cardNo: "4918914107195011”,
@@ -66,8 +69,13 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW
                                          remark: @"123"
                                          payRef: @""
                                          resultpage: @"F"
-                                         showCloseButton: false,
+                                         showCloseButton: false
+                                         showToolbar: true
+                                         webViewClosePrompt: @"Do you really want to close this page?"
                                          extraData: nil];
+
+//For giving the merchant app rootviewcontroller to present webview. Its an optional parameter.
+paysdk.paymentDetails.presentController = [[PresentViewController alloc] initWithPresentViewController:[[[UIApplication sharedApplication]keyWindow]rootViewController]];
                                                    
 [paySDK process];
 ```

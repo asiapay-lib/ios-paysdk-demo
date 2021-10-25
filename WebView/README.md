@@ -17,8 +17,12 @@ paySDK.paymentDetails = PayData(channelType : PayChannel.WEBVIEW,
                                 payRef: "",
                                 resultPage:"F",
                                 showCloseButton: true,
+                                showToolbar: true,
+                                webViewClosePrompt: "Do you want to close?",
                                 extraData:[:])
 
+//For giving the merchant app rootviewcontroller to present webview. Its an optional parameter.
+paysdk.paymentDetails.presentController = PresentViewController(presentViewController: (UIApplication.shared.keyWindow?.rootViewController)!)
                 
 paySDK.process();
 
@@ -41,7 +45,26 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
                                          payRef: @"" 
                                          resultpage: @"F" 
                                          showCloseButton: true,
+                                         showToolbar: true,
+                                         webViewClosePrompt: @"Do you want to close?",
                                          extraData: nil];
+                                         
+ //For giving the merchant app rootviewcontroller to present webview. Its an optional parameter.
+paysdk.paymentDetails.presentController = [[PresentViewController alloc]    initWithPresentViewController:[[[UIApplication sharedApplication]keyWindow]rootViewController]];
 
 [paySDK process];
+```
+
+//PaySDK will trigger payment result handle with failed status at WebView integration if the requested url scheme is failed to trigger.
+
+//Merchant can prompt the message for this case and ignore the result handle if they received the error message started with "No app installed to handle the request"
+
+```
+func paymentResult(result: PayResult) {
+        if (result.errMsg.starts(with: "No app installed to handle the request with scheme")) {
+                // ignore the result or prompt the app is not installed
+        } else {
+                // process fail or success
+        }
+}
 ```

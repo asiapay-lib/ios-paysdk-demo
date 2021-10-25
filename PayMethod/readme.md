@@ -16,6 +16,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultpage: "F",
                                 showCloseButton: false,
+                                showToolbar: true,
+                                webViewClosePrompt: "",
                                 extraData : [])
                                 
 paySDK.query(action: "PAYMENT_METHOD")
@@ -42,6 +44,8 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelNONE
                                          payRef: @""
                                          resultpage: resultPage
                                          showCloseButton: false
+                                         showToolbar: true
+                                         webViewClosePrompt: @""
                                          extraData: nil];
 
 [paySDK queryWithAction:@"PAYMENT_METHOD"];

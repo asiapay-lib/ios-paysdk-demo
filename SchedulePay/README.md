@@ -21,6 +21,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 merchantId: "88146271",
                                 remark: "",
                                 showCloseButton: false,
+                                showToolbar: true,
+                                webViewClosePrompt: "",
                                 extraData: ["appId" : "SP",
                                             "appRef" : "2018102409220001",
                                             "schType" : "Day",
@@ -75,6 +77,8 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT  
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: @"F" 
-                                         showCloseButton: false,
+                                         showCloseButton: false
+                                         showToolbar: true
+                                         webViewClosePrompt: @""
                                          extraData: extraData];
 ```

@@ -39,6 +39,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultpage: "F",
                                 showCloseButton: false,
+                                showToolbar: false,
+                                webViewClosePrompt: "",
                                 extraData : ["apple_countryCode" : "HK",
                                              "apple_currencyCode" : "HKD",
                                              "apple_billingContactEmail" : "abc@gmail.com",
@@ -80,6 +82,8 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          payRef: @""
                                          resultpage: resultPage
                                          showCloseButton: false
+                                         showToolbar: false
+                                         webViewClosePrompt: ""
                                          extraData: arr];
 
 [paySDK process];
@@ -125,6 +129,8 @@ paysdk.paymentDetails = PayData(channelType: .DIRECT,
                                 payRef: "",
                                 resultpage: resultPage,
                                 showCloseButton: false,
+                                showToolbar: false,
+                                webViewClosePrompt: "",
                                 extraData: ["eWalletPaymentData" : b64TokenStr])
 paysdk.process()
 ```
@@ -166,6 +172,8 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          payRef: @""
                                          resultpage: resultPage
                                          showCloseButton: false
+                                         showToolbar: false
+                                         webViewClosePrompt: @""
                                          extraData: arr];
 
 [paySDK process];

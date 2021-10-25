@@ -35,6 +35,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultPage: "F",
                                 showCloseButton: false,
+                                showToolbar: false,
+                                webViewClosePrompt: "",
                                 extraData : [:])
 
 paySDK.process();
@@ -58,7 +60,9 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: @"F" 
-                                         showCloseButton: false,
+                                         showCloseButton: false
+                                         showToolbar: false
+                                         webViewClosePrompt: @""
                                          extraData: nil];
 
 [paySDK process];

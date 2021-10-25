@@ -17,6 +17,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultpage: resultPage,
                                 showCloseButton: false,
+                                showToolbar: true,
+                                webViewClosePrompt: "",
                                 extraData : [:])
 
 paysdk.paymentDetails.callBackParam = CallBackParam(successUrl: "xxx://abc//success",
@@ -44,6 +46,8 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
                                          payRef: ""
                                          resultpage: resultPage
                                          showCloseButton: false
+                                         showToolbar: true
+                                         webViewClosePrompt: @""
                                          extraData: nil];
                                          
 
@@ -62,6 +66,20 @@ paySDK.paymentDetails.callBackParam = [[CallBackParam alloc] initWithsuccessUrl:
      //process result here
      
     }
+
+
+//PaySDK will trigger payment result handle with failed status at WebView integration if the requested url scheme is failed to trigger.
+
+//Merchant can prompt the message for this case and ignore the result handle if they received the error message started with "No app installed to handle the request"
+
+
+func paymentResult(result: PayResult) {
+        if (result.errMsg.starts(with: "No app installed to handle the request with scheme")) {
+                // ignore the result or prompt the app is not installed
+        } else {
+                // process fail or success result here
+        }
+}
 ```
 * Note: On successfull transaction orderId will get in PayResult as OrderId.
 

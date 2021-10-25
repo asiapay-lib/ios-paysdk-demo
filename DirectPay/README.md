@@ -24,6 +24,8 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 payRef: "",
                                 resultpage: "F",
                                 showCloseButton: false,
+                                showToolbar: true,
+                                webViewClosePrompt: "",
                                 extraData :[:])
 
 paySDK.process()
@@ -45,7 +47,9 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT  
                                          remark: @"" 
                                          payRef: @"" 
                                          resultpage: resultPage 
-                                         showCloseButton: false, 
+                                         showCloseButton: false
+                                         showToolbar: true
+                                         webViewClosePrompt: @""
                                          extraData: nil];
 
 paySDK.paymentDetails.cardDetails = [[CardDetails alloc] initWithCardHolderName: @"Test Card"                                                              cardNo: cardNoText.text                                                                           expMonth: expMonthText.text 
