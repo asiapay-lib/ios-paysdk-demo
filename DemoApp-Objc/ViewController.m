@@ -40,20 +40,21 @@
 
 
 @implementation ViewController {
-    IQKeyboardReturnKeyHandler *returnKeyHandler;
+    
+    //    IQKeyboardReturnKeyHandler *returnKeyHandler;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     paySDK = [PaySDK shared];
-    
-    returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithController:self];
-//    [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
+    self.title = @"PaySDK Demo";
+    //    returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithController:self];
+    //  returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
     
     orderRef = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000000000];
     
-//    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarByPosition];
-    [[IQKeyboardManager shared] setToolbarManageBehaviour:IQAutoToolbarManageBehaviourByPosition];
+    //    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarByPosition];
+    //    [[IQKeyboardManager shared] setToolbarManageBehaviour:IQAutoToolbarManageBehaviourByPosition];
     
     UiCustomization *customization = [[UiCustomization alloc] init];
     
@@ -81,7 +82,9 @@
     
     paySDK.delegate = self;
     paySDK.isBioMetricRequired = YES;
+    mIdText.text = @"88146271";
     merchantId = mIdText.text;
+    
     
 }
 
@@ -89,10 +92,30 @@
     merchantId = mIdText.text;
     resultPage = @"F";
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:amountText.text payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"VISA" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
-
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:amountText.text
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"VISA"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil];
+    
     NSLog(@"%@", cardNoText.text);
-    paySDK.paymentDetails.cardDetails = [[CardDetails alloc] initWithCardHolderName:@"Test Card" cardNo:cardNoText.text expMonth:expMonthText.text expYear:expYearText.text securityCode:securityCodeText.text];
+    paySDK.paymentDetails.cardDetails = [[CardDetails alloc] initWithCardHolderName:@"Test Card"
+                                                                             cardNo:cardNoText.text
+                                                                           expMonth:expMonthText.text
+                                                                            expYear:expYearText.text
+                                                                       securityCode:securityCodeText.text];
     
     
     [paySDK process];
@@ -100,55 +123,116 @@
 
 - (IBAction)hostedClick:(id)sender {
     merchantId = mIdText.text;
-   
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW envType:EnvTypeSANDBOX amount:amountText.text payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"CC" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
+    
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:amountText.text
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"CC"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil];
     
     [paySDK process];
 }
 
 - (IBAction)schedulePayClick:(id)sender {
     NSDictionary *dic = @{@"appId" : @"SP",
-        @"appRef" : @"txtOrderRef.text!",
-        @"schType" : @"Day",
-        @"schStatus" : @"Active",
-        @"nSch" : @"1",
-        @"sMonth" : @"4",
-        @"sDay" : @"26",
-        @"sYear" : @"2019",
-        @"eMonth" : @"",
-        @"eDay" : @"",
-        @"eYear" : @"",
-        @"name" : @"Name",
-        @"email" : @"name@abc.com"};
+                          @"appRef" : @"txtOrderRef.text!",
+                          @"schType" : @"Day",
+                          @"schStatus" : @"Active",
+                          @"nSch" : @"1",
+                          @"sMonth" : @"4",
+                          @"sDay" : @"26",
+                          @"sYear" : @"2019",
+                          @"eMonth" : @"",
+                          @"eDay" : @"",
+                          @"eYear" : @"",
+                          @"name" : @"Name",
+                          @"email" : @"name@abc.com"};
     
     extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW envType:EnvTypeSANDBOX amount:@"2.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"VISA" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:extraData];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"2.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef payMethod:@"VISA"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:extraData];
     
     [paySDK process];
 }
 
 - (IBAction)PromoPayClick:(id)sender {
     NSDictionary *dic = @{@"promotion": @"T",
-        @"promotionCode": @"TEST1",
-        @"promotionRuleCode" : @"TESTR25",//"TESTR50"
-        @"promotionOriginalAmt": @"5"};
+                          @"promotionCode": @"TEST1",
+                          @"promotionRuleCode" : @"TESTR25",//"TESTR50"
+                          @"promotionOriginalAmt": @"5"};
     
     extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW envType:EnvTypeSANDBOX amount:@"2.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"VISA" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:extraData];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"2.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"VISA"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:extraData];
     
     [paySDK process];
 }
 
 - (IBAction)InstallmentPayClick:(id)sender {
     NSDictionary *dic = @{ @"installment_service" : @"T",
-               @"installment_period" : @6,
-               @"installOnly": @"T"};
+                           @"installment_period" : @6,
+                           @"installOnly": @"T"};
     
     extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW envType:EnvTypeSANDBOX amount:@"2.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"VISA" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:extraData];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW
+                                                         envType: EnvTypeSANDBOX
+                                                          amount: @"2.0"
+                                                         payGate: PayGatePAYDOLLAR
+                                                        currCode: CurrencyCodeHKD
+                                                         payType: payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef payMethod:@"VISA"
+                                                            lang: LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark: @""
+                                                          payRef: @""
+                                                      resultpage: resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData: extraData];
     
     [paySDK process];
 }
@@ -156,11 +240,27 @@
 - (IBAction)NewMemberPayClick:(id)sender {
     resultPage = @"T";
     NSDictionary *dic = @{@"memberPay_memberId" : @"member03",
-                  @"addNewMember" : @"true",
-                  @"memberPay_service": @"T"};
+                          @"addNewMember" : @"true",
+                          @"memberPay_service": @"T"};
     extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW envType:EnvTypeSANDBOX amount:@"2.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"VISA" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:extraData];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"2.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"VISA"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:extraData];
     
     [paySDK process];
 }
@@ -168,57 +268,154 @@
 - (IBAction)OldMemberPayClick:(id)sender {
     resultPage = @"T";
     NSDictionary *dic = @{@"memberPay_memberId" : @"member03",
-                  @"addNewMember" : @"true",
-                  @"memberPay_token" : @"",
-                  @"memberPay_service": @"T"};
+                          @"addNewMember" : @"true",
+                          @"memberPay_token" : @"",
+                          @"memberPay_service": @"T"};
     extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW envType:EnvTypeSANDBOX amount:@"2.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"VISA" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:extraData];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"2.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"VISA"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:extraData];
     
     [paySDK process];
 }
 
 - (IBAction)eVoucherClick:(id)sender {
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW envType:EnvTypeSANDBOX amount:@"2.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"VISA" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"2.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"VISA"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil];
     
     [paySDK process];
 }
 
 - (IBAction)octopusPayClick:(id)sender{
-    NSDictionary *dic =@{@"eVoucher": @"T",
-                         @"eVClassCode": @"0001"};
+    NSDictionary *dic = @{@"eVoucher": @"T",
+                          @"eVClassCode": @"0001"};
     extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
-                        
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"0.1" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"OCTOPUS" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:extraData];
+    
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"0.1"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"OCTOPUS"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"                      extraData:extraData];
     
     [paySDK process];
 }
 
 - (IBAction)FPSClick:(id)sender{
-    
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"0.1" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef:orderRef payMethod:@"FPS" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
+    NSDictionary *dic = @{@"fpsQueryUrl" : @"https://fps.paydollar.com/api/fpsQrUrl?encrypted="};
+    extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                         envType:EnvTypePRODUCTION amount:@"2.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef:orderRef
+                                                       payMethod:@"FPS"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:dic];
     
     [paySDK process];
 }
 
 - (IBAction)alipayHKClick:(id)sender{
-
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"1.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"ALIPAYHKAPP" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
+    
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"1.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"ALIPAYHKAPP"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData: nil];
     
     [paySDK process];
 }
 
 - (IBAction)alipayCNClick:(id)sender{
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"1.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"ALIPAYCNAPP" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"1.0"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD
+                                                         payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"ALIPAYCNAPP"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil];
     
     [paySDK process];
 }
 
 - (IBAction)alipayGlobalClick:(id)sender{
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"1.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"ALIPAYAPP" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"1.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"ALIPAYAPP" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?" extraData:nil];
     
     [paySDK process];
 }
@@ -228,18 +425,46 @@
     NSDictionary *dic =@{@"wechatUniversalLink": @"https://paydollarmobileapp/"};
     extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"1.0" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef: orderRef payMethod:@"WECHATAPP" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"0.01"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT
+                                                        orderRef: orderRef
+                                                       payMethod:@"WECHATAPP"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil];
     
     [paySDK process];
 }
 
 - (IBAction)PayMeClick:(id)sender{
     
-    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT envType:EnvTypeSANDBOX amount:@"1.81" payGate:PayGatePAYDOLLAR currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef:orderRef payMethod:@"PayMe" lang:LanguageENGLISH merchantId: merchantId remark:@"" payRef:@"" resultpage:resultPage extraData:nil];
-
+    paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                         envType:EnvTypeSANDBOX
+                                                          amount:@"1.81"
+                                                         payGate:PayGatePAYDOLLAR
+                                                        currCode:CurrencyCodeHKD payType:payTypeNORMAL_PAYMENT orderRef:orderRef
+                                                       payMethod:@"PayMe"
+                                                            lang:LanguageENGLISH
+                                                      merchantId: merchantId
+                                                          remark:@""
+                                                          payRef:@""
+                                                      resultpage:resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?" extraData:nil];
+    
     paySDK.paymentDetails.callBackParam = [[CallBackParam alloc] initWithSuccessUrl:@"DemoApp-Objc://success"                                                           cancelUrl : @"DemoApp-Objc://cancel"
                                                                            errorUrl: @"DemoApp-Objc://error"
-                                                                 failUrl : @"DemoApp-Objc://fail"];
+                                                                           failUrl : @"DemoApp-Objc://fail"];
     
     [paySDK process];
 }
@@ -294,7 +519,7 @@
     threeDSParams.threeDSGiftCardCount = @"1";
     threeDSParams.threeDSSdkMaxTimeout = @"05";
     threeDSParams.threeDSSdkInterface = @"03";
- 
+    
     paySDK.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelWEBVIEW
                                                          envType:EnvTypeSANDBOX
                                                           amount:@"1"
@@ -307,9 +532,11 @@
                                                       merchantId:merchantId
                                                           remark:@"123"
                                                           payRef: @""
-                                                      resultpage: resultPage
+                                                      resultpage: resultPage showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
                                                        extraData:nil];
- 
+    
     paySDK.paymentDetails.cardDetails = [[CardDetails alloc] initWithCardHolderName:@"Test Card" cardNo:cardNoText.text expMonth:expMonthText.text expYear:expYearText.text securityCode:securityCodeText.text];
     
     paySDK.paymentDetails.threeDSParams = threeDSParams;
@@ -332,6 +559,9 @@
                                                           remark:@"123"
                                                           payRef: @""
                                                       resultpage: resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
                                                        extraData:nil];
     
     [paySDK process];
@@ -362,6 +592,9 @@
                                                           remark:@"test"
                                                           payRef: @""
                                                       resultpage: resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
                                                        extraData:arr];
     //paysdk.paymentDetails.cardDetails = [[CardDetails alloc] initWithCardHolderName:@"asd asd" cardNo:@"4444333322221111" expMonth:@"12" expYear:@"2022" securityCode:@"123"];
     [paySDK process];
@@ -382,6 +615,9 @@
                                                           remark:@"123"
                                                           payRef: @""
                                                       resultpage: resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
                                                        extraData:nil];
     
     [paySDK process];
@@ -401,6 +637,9 @@
                                                           remark:@"123"
                                                           payRef: @"" //@"7862308"
                                                       resultpage: resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
                                                        extraData:nil];
     
     [paySDK queryWithAction:@"PAYMENT_METHOD"];
@@ -421,6 +660,9 @@
                                                           remark:@"123"
                                                           payRef: @"" //@"7862308"
                                                       resultpage: resultPage
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
                                                        extraData:nil];
     
     [paySDK queryWithAction:@"TX_QUERY"];
@@ -445,7 +687,7 @@
 
 
 - (void)hideProgress {
-   
+    
 }
 
 - (void)payMethodOptionsWithMethod:(PaymentOptionsDetail * _Nonnull)method {
@@ -455,6 +697,12 @@
 
 - (void)transQueryResultsWithResult:(TransQueryResults * _Nonnull)result {
     NSLog(@"%@", result);
+    
+    if (result.detail != nil) {
+        NSArray *resultArray = result.detail;// ? else { return ["errMsg": "Error"] }
+        
+        NSLog(@"amount - %@ \norderStatus - %@\nsuccessCode - %@ \nauthId - %@ \nremark - %@ \ncardHolder - %@ \ncurrencyCode - %@ \nerrMsg - %@ \nord -%@ \npayRef - %@\nprc - %@ \nsrc -%@ \ntransactionTime - %@ \ncardIssuingCountry- %@ \nRef -%@ \neci %@ \nipCountry - %@ "")\nchannelType - %@\nmerchantId  - %@ \npayerAuth  - %@ \npanLast4  - %@ \npayMethod  - %@ \nord  - %@\npanFirst4  - %@\nalertCode  - %@ \nsourceIp  - %@",  resultArray[0], resultArray[1],resultArray[2],resultArray[3],resultArray[4],resultArray[5],resultArray[6],resultArray[7],resultArray[8],resultArray[9],resultArray[10],resultArray[11],resultArray[12],resultArray[13],resultArray[14],resultArray[15],resultArray[16],resultArray[17],resultArray[18],resultArray[19],resultArray[20],resultArray[21],resultArray[22],resultArray[23],resultArray[24],resultArray[25]);
+    }
 }
 
 
@@ -476,7 +724,7 @@
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField == mIdText) {
-       
+        
     }
     
     return YES;
@@ -488,21 +736,21 @@
     
     if (isResignedFirstResponder == YES )
     {
-       
+        
     }
 }
 /**     doneAction. Resigning current textField. */
--(void)doneAction:(IQBarButtonItem*)barButton
-{
-    
-    BOOL isResignedFirstResponder = [self resignFirstResponder];
-    
-    if (isResignedFirstResponder == YES && barButton.invocation)
-    {
-        [barButton.invocation invokeFrom:self];
+//-(void)doneAction:(IQBarButtonItem*)barButton
+//{
+//
+//    BOOL isResignedFirstResponder = [self resignFirstResponder];
+//
+//    if (isResignedFirstResponder == YES && barButton.invocation)
+//    {
+////        [barButton.invocation invokeFrom:self];
 //        [barButton.invocation invoke];
-    }
-}
+//    }
+//}
 
 
 @end

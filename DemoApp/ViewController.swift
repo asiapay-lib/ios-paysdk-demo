@@ -23,7 +23,7 @@ class ViewController: FormViewController {
     var VASService : String = ""
     let loadview = LoadingView()
     var VASData : [String : Any]?
-    var threeDSParams : ThreeDSParams?
+//    var threeDSParams : ThreeDSParams?
     var payref: String = ""
     var resultPage: String = "F"
     
@@ -32,14 +32,14 @@ class ViewController: FormViewController {
         print("SDK Version: \(paySDK.getSDKVersion())")
         let customization = UiCustomization()
         
-        let submitButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
+        let submitButtonCustomization = ButtonCustomization("Courier", "#FFFFFF", 15, "#000000", 4)
         let resendButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
         let cancelButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
         let nextButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
         let continueButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
         let labelCustomization = LabelCustomization("Courier", "FF0000", 14, "FF0000", "Courier", 20)
         let textboxCustomization = TextBoxCustomization("Courier", "#FF0000", 14, 5, "#d3d3d3", 4)
-        let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "")
+        let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "Payment Page", "")
         
         try! customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
         try! customization.setButtonCustomization(resendButtonCustomization, .RESEND)
@@ -64,7 +64,12 @@ class ViewController: FormViewController {
             <<< TextRow() { row in
                 row.title = "merchant id"
                 row.placeholder = "Enter text here"
-                row.value = "88146271"
+                row.value = "88154745"
+                    //"88618350"
+                    //"88146271"
+//                row.value = "88627221"
+//                row.value =  "88155597"
+                
             }
             //<<< PickerInputRow<String>("Picker Input Row") {
             //$0.title = "merchant id"
@@ -114,7 +119,7 @@ class ViewController: FormViewController {
             <<< PhoneRow() {
                 $0.title = "amount"
                 $0.placeholder = "And numbers here"
-                $0.value = "1"
+                $0.value = "0.1"
             }
             <<< PasswordRow() {
                 $0.title = "security code"
@@ -201,7 +206,7 @@ class ViewController: FormViewController {
             }.onCellSelection({ (str, row) in
                 self.processHosted(nil)
             })
-            <<< ButtonRow() { (row: ButtonRow) in
+            /*<<< ButtonRow() { (row: ButtonRow) in
                 row.title = "Installment Pay"
             }.onCellSelection({ (str, row) in
                     self.VASService = row.title!
@@ -245,10 +250,10 @@ class ViewController: FormViewController {
                 self.VASService = row.title!
                 let addVC = VASController()
                 addVC.VAS = self.VASService
-                addVC.viewController1 = self
+                addVC.v"iewController1 = self
                 self.navigationController?.pushViewController(addVC, animated: true)
                 //self.processHosted(nil)
-            })
+            })*/
             <<< ButtonRow() { (row: ButtonRow) in
                 row.title = "WECHATAPP"
             }.onCellSelection({ (str, row) in
@@ -257,9 +262,9 @@ class ViewController: FormViewController {
             <<< ButtonRow() { (row: ButtonRow) in
                 row.title = "APPLEPAY"
             }.onCellSelection({ (str, row) in
-                self.processWechat(sender: "")
+                self.processWechat(sender: "APPLEPAY")
             })
-            <<< ButtonRow() { (row: ButtonRow) in
+           <<< ButtonRow() { (row: ButtonRow) in
                 row.title = "THREEDS2"
             }.onCellSelection({ (str, row) in
                 self.VASService = row.title!
@@ -289,7 +294,12 @@ class ViewController: FormViewController {
             }.onCellSelection({ (str, row) in
                 self.processWechat(sender: "OCTOPUS")
             })
-            <<< ButtonRow() { (row: ButtonRow) in
+            /*<<< ButtonRow() { (row: ButtonRow) in
+                row.title = "FPS"
+            }.onCellSelection({ (str, row) in
+                self.processWechat(sender: "FPS")
+            })*/
+           <<< ButtonRow() { (row: ButtonRow) in
                 row.title = "EASYPAYMENTFORM"
             }.onCellSelection({ (str, row) in
                 self.eASYPAYMENTFORM()
@@ -309,7 +319,7 @@ class ViewController: FormViewController {
                 self.navigationController?.pushViewController(addVC, animated: true)
                 //self.transQuery()
             })
-            <<< ButtonRow() { (row: ButtonRow) in
+            /*<<< ButtonRow() { (row: ButtonRow) in
                 row.title = "PAYMENT OPTIONS"
             }.onCellSelection({ (str, row) in
                 self.paymentOptions()
@@ -323,37 +333,37 @@ class ViewController: FormViewController {
                 addVC.viewController1 = self
                 self.navigationController?.pushViewController(addVC, animated: true)
                 //self.transQuery()
-            })
+            })*/
         serialGroup.notify(queue: DispatchQueue.main) {
 
            print("All Groups request completed.....")
 
         }
-        print("1: ",form1?.allSections[0][1].title as? String)
-        print("2: ",form1?.allSections[0][2].title as? String)
-        print("3: ",form1?.allSections[0][3].title as? String)
-        print("4: ",form1?.allSections[0][4].title as? String)
-        print("5: ",form1?.allSections[0][5].title as? String)
-        print("6: ",form1?.allSections[0][6].title as? String)
-        print("7: ",form1?.allSections[0][7].title as? String)
-        print("8: ",form1?.allSections[0][8].title as? String)
-        print("9: ",form1?.allSections[0][9].title as? String)
-        print("10: ",form1?.allSections[0][10].title as? String)
-        print("11: ",form1?.allSections[0][11].title as? String)
-        print("12: ",form1?.allSections[0][12].title as? String)
-        print("13: ",form1?.allSections[0][13].title as? String)
-        print("14: ",form1?.allSections[0][14].title as? String)
-        print("15: ",form1?.allSections[0][15].title as? String)
-        print("16: ",form1?.allSections[0][16].title as? String)
-        print("17: ",form1?.allSections[0][17].title as? String)
-        print("18: ",form1?.allSections[0][18].title as? String)
-        print("19: ",form1?.allSections[0][19].title as? String)
-        print("20: ",form1?.allSections[0][20].title as? String)
-        print("21: ",form1?.allSections[0][21].title as? String)
-        print("22: ",form1?.allSections[0][22].title as? String)
-        print("23: ",form1?.allSections[0][23].title as? String)
-        print("24: ",form1?.allSections[0][24].title as? String)
-        print("25: ",form1?.allSections[0][25].title as? String)
+//        print("1: ",form1?.allSections[0][1].title as? String)
+//        print("2: ",form1?.allSections[0][2].title as? String)
+//        print("3: ",form1?.allSections[0][3].title as? String)
+//        print("4: ",form1?.allSections[0][4].title as? String)
+//        print("5: ",form1?.allSections[0][5].title as? String)
+//        print("6: ",form1?.allSections[0][6].title as? String)
+//        print("7: ",form1?.allSections[0][7].title as? String)
+//        print("8: ",form1?.allSections[0][8].title as? String)
+//        print("9: ",form1?.allSections[0][9].title as? String)
+//        print("10: ",form1?.allSections[0][10].title as? String)
+//        print("11: ",form1?.allSections[0][11].title as? String)
+//        print("12: ",form1?.allSections[0][12].title as? String)
+//        print("13: ",form1?.allSections[0][13].title as? String)
+//        print("14: ",form1?.allSections[0][14].title as? String)
+//        print("15: ",form1?.allSections[0][15].title as? String)
+//        print("16: ",form1?.allSections[0][16].title as? String)
+//        print("17: ",form1?.allSections[0][17].title as? String)
+//        print("18: ",form1?.allSections[0][18].title as? String)
+//        print("19: ",form1?.allSections[0][19].title as? String)
+//        print("20: ",form1?.allSections[0][20].title as? String)
+//        print("21: ",form1?.allSections[0][21].title as? String)
+//        print("22: ",form1?.allSections[0][22].title as? String)
+//        print("23: ",form1?.allSections[0][23].title as? String)
+//        print("24: ",form1?.allSections[0][24].title as? String)
+//        print("25: ",form1?.allSections[0][25].title as? String)
     }
     
     
@@ -430,6 +440,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: false,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you really wnt to close?",
                                         extraData :  extraData)
         if form1?.allSections[0][3].baseValue != nil {
             paySDK.paymentDetails.cardDetails = CardDetails(cardHolderName: (form1?.allSections[0][4].baseValue as? String) ?? "",
@@ -459,13 +472,30 @@ class ViewController: FormViewController {
                                         currCode: currCode!,
                                         payType: payType.NORMAL_PAYMENT,
                                         orderRef: (form1?.allSections[0][1].baseValue as? String) ?? "",
-                                        payMethod: "CC",
+                                        payMethod: "ALL",
                                         lang: Language.ENGLISH,
                                         merchantId: (form1?.allSections[0][1].baseValue as? String) ?? "",
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: true,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you really wnt to close?",
                                         extraData :  extraData)
+//        paySDK.paymentDetails = PayData(channelType: PayChannel.WEBVIEW,
+//                                            envType: EnvType.SANDBOX,
+//                                            amount :"100",
+//                                            payGate: PayGate.PAYDOLLAR,
+//                                            currCode: .HKD,
+//                                            payType: payType.NORMAL_PAYMENT,
+//                                            orderRef: "2018102409220001",
+//                                            payMethod: "VISA",
+//                                            lang: Language.ENGLISH,
+//                                            merchantId: "88155155",  ///88593126. ///88620594 ///UAT MID 88593126
+//                                            remark: "",
+//                                            payRef: "",
+//                                            resultpage: "F",
+//                                            extraData :[:])
         paySDK.process()
     }
     
@@ -473,26 +503,28 @@ class ViewController: FormViewController {
     @IBAction func  processWechat(sender: String) {
         var extraData = getValues()
         if sender == "APPLEPAY" {
-            extraData = ["apple_countryCode" : "US",
-                         "apple_currencyCode" : "USD",
+            extraData = ["apple_countryCode" : "HK",
+                         "apple_currencyCode" : "HKD",
                          "apple_billingContactEmail" : "abc@gmail.com",
                          "apple_billingContactPhone" : "1234567890",
                          "apple_billingContactGivenName" : "ABC",
                          "apple_billingContactFamilyName" : "XYZ",
                          "apple_requiredBillingAddressFields" : "",
                          "apple_merchant_name" : "Demo",
-                         "apple_merchantId" : "com.merchant.asiapay.applepay.demo"
-            ]
-        } else if sender == "WECHAT" {
+                         "apple_merchantId" : "com.merchant.asiapay.applepay.demo"]
+        } else if sender == "WECHATAPP" {
             extraData = [
                 "wechatUniversalLink": "https://paydollarmobileapp/"
             ]
         } else if sender == "OCTOPUS" {
             extraData = ["eVoucher": "T",
                          "eVClassCode": "0001"]
-        } else {
-            extraData = ["apple_countryCode" : "US",
-                         "apple_currencyCode" : "USD",
+        } else if sender == "FPS" {
+             extraData = ["fpsQueryUrl" : "https://fps.paydollar.com/api/fpsQrUrl?encrypted="]
+        }
+        else {
+            extraData = ["apple_countryCode" : "HK",
+                         "apple_currencyCode" : "HKD",
                          "apple_billingContactEmail" : "abc@gmail.com",
                          "apple_billingContactPhone" : "1234567890",
                          "apple_billingContactGivenName" : "ABC",
@@ -502,7 +534,7 @@ class ViewController: FormViewController {
                          "apple_merchantId" : "com.merchant.asiapay.applepay.demo"]
         }
         paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
-                                        envType: EnvType.SANDBOX,
+                                        envType: EnvType.PRODUCTION,
                                         amount : (form1?.allSections[0][7].baseValue as? String) ?? "",
                                         payGate: payGateForPG!,
                                         currCode: currCode!,
@@ -514,6 +546,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: false,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "",
                                         extraData :  extraData)
         paySDK.process()
     }
@@ -534,6 +569,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: false,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "",
                                         extraData :  extraData)
         paySDK.process()
     }
@@ -544,7 +582,7 @@ class ViewController: FormViewController {
         paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                         envType: .SANDBOX, //.SANDBOX,
                                         amount: (form1?.allSections[0][7].baseValue as? String) ?? "",
-                                        payGate: payGateForPG!,//PayGate.PAYDOLLAR,
+                                        payGate: PayGate.PAYDOLLAR,//PayGate.PAYDOLLAR,
                                         currCode: currCode!,//CurrencyCode.MYR,
                                         payType: payType.NORMAL_PAYMENT,
                                         orderRef: (form1?.allSections[0][2].baseValue as? String) ?? "",
@@ -554,6 +592,9 @@ class ViewController: FormViewController {
                                         remark: "123",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: false,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you really want to close?",
                                         extraData: extraData)
         
         paySDK.paymentDetails.callBackParam = CallBackParam(successUrl : "DemoApp://success",
@@ -573,19 +614,23 @@ class ViewController: FormViewController {
     
    func transQuery() {
         let extraData = getValues()
+
         paySDK.paymentDetails = PayData(channelType: PayChannel.NONE,
-                                        envType: EnvType.SANDBOX,
+                                        envType: EnvType.PRODUCTION,
                                         amount : (form1?.allSections[0][7].baseValue as? String) ?? "",
                                         payGate: payGateForPG!,
                                         currCode: currCode!,
                                         payType: payType.NORMAL_PAYMENT,
-                                        orderRef: (form1?.allSections[0][2].baseValue as? String) ?? "",
+                                        orderRef: "4D6CA9E47E0C9B419322716E53195127",
                                         payMethod: "ALL",
                                         lang: Language.ENGLISH,
                                         merchantId: (form1?.allSections[0][1].baseValue as? String) ?? "",
                                         remark: "",
                                         payRef: self.payref,
                                         resultpage: resultPage,
+                                        showCloseButton: false,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you really wnt to close?",
                                         extraData :  extraData)
     
         paySDK.query(action: Action.TX_QUERY.rawValue) //"TX_QUERY")
@@ -607,6 +652,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: false,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you really wnt to close?",
                                         extraData :  extraData)
     paySDK.query(action: "PAYMENT_METHOD")
     }
@@ -627,6 +675,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: false,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you really wnt to close?",
                                         extraData :  extraData)
         if form1?.allSections[0][3].baseValue != nil {
             paySDK.paymentDetails.cardDetails = CardDetails(cardHolderName: (form1?.allSections[0][4].baseValue as? String) ?? "",
@@ -684,7 +735,7 @@ class ViewController: FormViewController {
 //        threeDSParams.threeDSGiftCardCount = "1"
 //        threeDSParams.threeDSSdkMaxTimeout = "05"
 //        threeDSParams.threeDSSdkInterface = "03"
-        paySDK.paymentDetails.threeDSParams = threeDSParams
+//        paySDK.paymentDetails.threeDSParams = threeDSParams
         paySDK.process()
     }
     
@@ -697,11 +748,11 @@ class ViewController: FormViewController {
         self.payref = ref
     }
     
-    func setThreeDSParams(params: ThreeDSParams?){
-//        threeDSParams = ThreeDSParams()
-        threeDSParams = params
-        print("####", threeDSParams)
-    }
+//    func setThreeDSParams(params: ThreeDSParams?){
+////        threeDSParams = ThreeDSParams()
+//        threeDSParams = params
+//        print("####", threeDSParams)
+//    }
     
     func getValues() -> [String: Any] {
         if isUIRamdom == true {
@@ -723,7 +774,7 @@ class ViewController: FormViewController {
                 let continueButtonCustomization =   ButtonCustomization(fontName!, color1, intNum1, color2, intNum2)
                 let labelCustomization =            LabelCustomization.init(fontName!, color1, intNum1, color2, fontName!, intNum3)
                 let textboxCustomization =          TextBoxCustomization(fontName!, color1, intNum1, intNum2, color2, intNum2)
-                let toolBarCustomization =          ToolbarCustomization(fontName!, color1, intNum3, color2, "Secure Checkout")
+                let toolBarCustomization =          ToolbarCustomization(fontName!, color1, intNum3, color2, "Secure Checkout", "")
                 
                 try customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
                 try customization.setButtonCustomization(resendButtonCustomization, .RESEND)

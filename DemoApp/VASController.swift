@@ -410,8 +410,9 @@ class VASController: FormViewController {
                     row.title = "payRef"
                     //row.value = "member03"
                     row.placeholder = "Enter text here"
-                    row.add(rule: RuleRequired())
-                    row.validationOptions = .validatesOnChange
+                    row.value = ""
+//                    row.add(rule: RuleRequired())
+//                    row.validationOptions = .validatesOnChange
                     }.cellUpdate { cell, row in
                         if !row.isValid {
                             cell.titleLabel?.textColor = .systemRed
@@ -998,63 +999,114 @@ class VASController: FormViewController {
                     row.title = VAS
                 }.onCellSelection({ (str, row) in
                     if self.form1!.validate().isEmpty {
-                        let threeDSParams = ThreeDSParams()
-                        threeDSParams.threeDSCustomerEmail = (self.form1?.allSections[0][0].baseValue as? String) ?? ""
-                        threeDSParams.threeDSMobilePhoneCountryCode = (self.form1?.allSections[0][1].baseValue as? String) ?? ""
-                        threeDSParams.threeDSMobilePhoneNumber = (self.form1?.allSections[0][2].baseValue as? String) ?? ""
-                        threeDSParams.threeDSHomePhoneCountryCode = (self.form1?.allSections[0][3].baseValue as? String) ?? ""
-                        threeDSParams.threeDSHomePhoneNumber = (self.form1?.allSections[0][4].baseValue as? String) ?? ""
-                        threeDSParams.threeDSWorkPhoneCountryCode = (self.form1?.allSections[0][5].baseValue as? String) ?? ""
-                        threeDSParams.threeDSWorkPhoneNumber = (self.form1?.allSections[0][6].baseValue as? String) ?? ""
-                        threeDSParams.threeDSDeliveryEmail = (self.form1?.allSections[0][7].baseValue as? String) ?? ""
-                        threeDSParams.threeDSBillingCountryCode = (self.form1?.allSections[0][8].baseValue as? String) ?? ""
-                        threeDSParams.threeDSBillingState = (self.form1?.allSections[0][9].baseValue as? String) ?? ""
-                        threeDSParams.threeDSBillingCity = (self.form1?.allSections[0][10].baseValue as? String) ?? ""
-                        threeDSParams.threeDSBillingLine1 = (self.form1?.allSections[0][11].baseValue as? String) ?? ""
-                        threeDSParams.threeDSBillingLine2 = (self.form1?.allSections[0][12].baseValue as? String) ?? ""
-                        threeDSParams.threeDSBillingLine3 = (self.form1?.allSections[0][13].baseValue as? String) ?? ""
-                        threeDSParams.threeDSBillingPostalCode = (self.form1?.allSections[0][14].baseValue as? String) ?? ""
-                        threeDSParams.threeDSShippingDetails = (self.form1?.allSections[0][15].baseValue as? String) ?? ""
-                        threeDSParams.threeDSShippingCountryCode = (self.form1?.allSections[0][16].baseValue as? String) ?? ""
-                        threeDSParams.threeDSShippingState = (self.form1?.allSections[0][17].baseValue as? String) ?? ""
-                        threeDSParams.threeDSShippingCity = (self.form1?.allSections[0][18].baseValue as? String) ?? ""
-                        threeDSParams.threeDSShippingLine1 = (self.form1?.allSections[0][19].baseValue as? String) ?? ""
-                        threeDSParams.threeDSShippingLine2 = (self.form1?.allSections[0][20].baseValue as? String) ?? ""
-                        threeDSParams.threeDSShippingLine3 = (self.form1?.allSections[0][21].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctCreateDate = (self.form1?.allSections[0][22].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctAgeInd = (self.form1?.allSections[0][23].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctLastChangeDate = (self.form1?.allSections[0][24].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctLastChangeInd = (self.form1?.allSections[0][25].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctPwChangeDate = (self.form1?.allSections[0][26].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctPwChangeInd = (self.form1?.allSections[0][27].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctPurchaseCount = (self.form1?.allSections[0][28].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctCardProvisionAttempt = (self.form1?.allSections[0][29].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctNumTransDay = (self.form1?.allSections[0][30].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctNumTransYear = (self.form1?.allSections[0][31].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctPaymentAcctDate = (self.form1?.allSections[0][32].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctPaymentAcctInd = (self.form1?.allSections[0][33].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctShippingAddrLastChangeDate = (self.form1?.allSections[0][34].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctShippingAddrLastChangeInd = (self.form1?.allSections[0][35].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctIsShippingAcctNameSame = (self.form1?.allSections[0][36].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctIsSuspiciousAcct = (self.form1?.allSections[0][37].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctAuthMethod = (self.form1?.allSections[0][38].baseValue as? String) ?? ""
-                        threeDSParams.threeDSAcctAuthTimestamp = (self.form1?.allSections[0][39].baseValue as? String) ?? ""
-                        threeDSParams.threeDSDeliveryTime = (self.form1?.allSections[0][40].baseValue as? String) ?? ""
-                        threeDSParams.threeDSPreOrderReason = (self.form1?.allSections[0][41].baseValue as? String) ?? ""
-                        threeDSParams.threeDSPreOrderReadyDate = (self.form1?.allSections[0][42].baseValue as? String) ?? ""
-                        threeDSParams.threeDSGiftCardAmount = (self.form1?.allSections[0][43].baseValue as? String) ?? ""
-                        threeDSParams.threeDSGiftCardCurr = (self.form1?.allSections[0][44].baseValue as? String) ?? ""
-                        threeDSParams.threeDSGiftCardCount = (self.form1?.allSections[0][45].baseValue as? String) ?? ""
-                        threeDSParams.threeDSSdkMaxTimeout = "05"
-                        threeDSParams.threeDSSdkInterface =  "03"
-                        //self.viewController1?.setThreeDSParams(params: threeDSParams)
-                        self.viewController1?.setThreeDSParams(params: threeDSParams)
-                        self.navigationController?.popViewController(animated: true)
-                        if self.viewController1?.form1?.allSections[0][3].baseValue != nil {
-                            self.viewController1?.processDirect(nil)
-                        } else {
-                            self.viewController1?.processHosted(nil)
-                        }
+                        /*let threeDSParams = ThreeDSParams()
+                                threeDSParams.threeDSCustomerEmail = "example@example.com"
+                                threeDSParams.threeDSDeliveryEmail = "example@example.com"
+                                threeDSParams.threeDSMobilePhoneCountryCode = "852"
+                                threeDSParams.threeDSMobilePhoneNumber = "9000000000"
+                                threeDSParams.threeDSHomePhoneCountryCode = "852"
+                                threeDSParams.threeDSHomePhoneNumber = "8000000000"
+                                threeDSParams.threeDSWorkPhoneCountryCode = "852"
+                                threeDSParams.threeDSWorkPhoneNumber = "7000000000"
+                                threeDSParams.threeDSBillingCountryCode = "344"
+                                threeDSParams.threeDSBillingState = ""
+                                threeDSParams.threeDSBillingCity = "Hong Kong"
+                                threeDSParams.threeDSBillingLine1 = "threeDSBillingLine1"
+                                threeDSParams.threeDSBillingLine2 = "threeDSBillingLine2"
+                                threeDSParams.threeDSBillingLine3 = "threeDSBillingLine3"
+                                threeDSParams.threeDSBillingPostalCode = "121245"
+                                threeDSParams.threeDSShippingDetails = "01"
+                                threeDSParams.threeDSShippingCountryCode = "344"
+                                threeDSParams.threeDSShippingState = ""
+                                threeDSParams.threeDSShippingCity = "Hong Kong"
+                                threeDSParams.threeDSShippingLine1 = "threeDSShippingLine1"
+                                threeDSParams.threeDSShippingLine2 = "threeDSShippingLine2"
+                                threeDSParams.threeDSShippingLine3 = "threeDSShippingLine3"
+                                threeDSParams.threeDSAcctCreateDate = "20190401"
+                                threeDSParams.threeDSAcctAgeInd = "01"
+                                threeDSParams.threeDSAcctLastChangeDate = "20190401"
+                                threeDSParams.threeDSAcctLastChangeInd = "01"
+                                threeDSParams.threeDSAcctPwChangeDate = "20190401"
+                                threeDSParams.threeDSAcctPwChangeInd = "01"
+                                threeDSParams.threeDSAcctPurchaseCount = "10"
+                                threeDSParams.threeDSAcctCardProvisionAttempt = "0"
+                                threeDSParams.threeDSAcctNumTransDay = "0"
+                                threeDSParams.threeDSAcctNumTransYear = "1"
+                                threeDSParams.threeDSAcctPaymentAcctDate = "20190401"
+                                threeDSParams.threeDSAcctPaymentAcctInd = "01"
+                                threeDSParams.threeDSAcctShippingAddrLastChangeDate = "20190401"
+                                threeDSParams.threeDSAcctShippingAddrLastChangeInd = "01"
+                                threeDSParams.threeDSAcctIsShippingAcctNameSame = "T"
+                                threeDSParams.threeDSAcctIsSuspiciousAcct = "F"
+                                threeDSParams.threeDSAcctAuthMethod = "01"
+                                threeDSParams.threeDSAcctAuthTimestamp = "20190401"
+                                threeDSParams.threeDSDeliveryTime = "04"
+                                threeDSParams.threeDSPreOrderReason = "01"
+                                threeDSParams.threeDSPreOrderReadyDate = "20190401"
+                                threeDSParams.threeDSGiftCardAmount = "5"
+                                threeDSParams.threeDSGiftCardCurr = "344"
+                                threeDSParams.threeDSGiftCardCount = "1"
+                                threeDSParams.threeDSSdkMaxTimeout = "05"
+                                threeDSParams.threeDSSdkInterface = "03"*/
+//                    {
+//
+//                        let threeDSParams = ThreeDSParams()
+//                        threeDSParams.threeDSCustomerEmail = (self.form1?.allSections[0][0].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSMobilePhoneCountryCode = (self.form1?.allSections[0][1].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSMobilePhoneNumber = (self.form1?.allSections[0][2].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSHomePhoneCountryCode = (self.form1?.allSections[0][3].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSHomePhoneNumber = (self.form1?.allSections[0][4].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSWorkPhoneCountryCode = (self.form1?.allSections[0][5].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSWorkPhoneNumber = (self.form1?.allSections[0][6].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSDeliveryEmail = (self.form1?.allSections[0][7].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSBillingCountryCode = (self.form1?.allSections[0][8].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSBillingState = (self.form1?.allSections[0][9].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSBillingCity = (self.form1?.allSections[0][10].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSBillingLine1 = (self.form1?.allSections[0][11].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSBillingLine2 = (self.form1?.allSections[0][12].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSBillingLine3 = (self.form1?.allSections[0][13].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSBillingPostalCode = (self.form1?.allSections[0][14].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSShippingDetails = (self.form1?.allSections[0][15].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSShippingCountryCode = (self.form1?.allSections[0][16].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSShippingState = (self.form1?.allSections[0][17].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSShippingCity = (self.form1?.allSections[0][18].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSShippingLine1 = (self.form1?.allSections[0][19].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSShippingLine2 = (self.form1?.allSections[0][20].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSShippingLine3 = (self.form1?.allSections[0][21].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctCreateDate = (self.form1?.allSections[0][22].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctAgeInd = (self.form1?.allSections[0][23].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctLastChangeDate = (self.form1?.allSections[0][24].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctLastChangeInd = (self.form1?.allSections[0][25].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctPwChangeDate = (self.form1?.allSections[0][26].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctPwChangeInd = (self.form1?.allSections[0][27].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctPurchaseCount = (self.form1?.allSections[0][28].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctCardProvisionAttempt = (self.form1?.allSections[0][29].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctNumTransDay = (self.form1?.allSections[0][30].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctNumTransYear = (self.form1?.allSections[0][31].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctPaymentAcctDate = (self.form1?.allSections[0][32].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctPaymentAcctInd = (self.form1?.allSections[0][33].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctShippingAddrLastChangeDate = (self.form1?.allSections[0][34].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctShippingAddrLastChangeInd = (self.form1?.allSections[0][35].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctIsShippingAcctNameSame = (self.form1?.allSections[0][36].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctIsSuspiciousAcct = (self.form1?.allSections[0][37].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctAuthMethod = (self.form1?.allSections[0][38].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSAcctAuthTimestamp = (self.form1?.allSections[0][39].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSDeliveryTime = (self.form1?.allSections[0][40].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSPreOrderReason = (self.form1?.allSections[0][41].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSPreOrderReadyDate = (self.form1?.allSections[0][42].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSGiftCardAmount = (self.form1?.allSections[0][43].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSGiftCardCurr = (self.form1?.allSections[0][44].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSGiftCardCount = (self.form1?.allSections[0][45].baseValue as? String) ?? ""
+//                        threeDSParams.threeDSSdkMaxTimeout = "05"
+//                        threeDSParams.threeDSSdkInterface =  "03"
+//                        //self.viewController1?.setThreeDSParams(params: threeDSParams)
+//                        self.viewController1?.setThreeDSParams(params: threeDSParams)
+//                        self.navigationController?.popViewController(animated: true)
+//                        if self.viewController1?.form1?.allSections[0][3].baseValue != nil {
+//                            self.viewController1?.processDirect(nil)
+//                        } else {
+//                            self.viewController1?.processHosted(nil)
+//                        }
                     } else {
                         self.onValidate()
                     }

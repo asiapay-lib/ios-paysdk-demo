@@ -40,6 +40,7 @@ extension AppDelegate {
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         PaySDK.shared.processOrder(url: url)
+        
         return true
     }
     
