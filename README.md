@@ -26,17 +26,17 @@ iOS Version: 11.0 and above
 
 * Download the latest sdk from https://github.com/asiapay-lib/paysdk-ios-lib
 
-* Add `AP_PaySDK.framework` file into your project by adding the dependencies in Build Phases / Link Binary With Libraries and also add `Material.framework` file into your project by adding the dependencies in Build Phases / Link Binary With Libraries or add using  cocoapods as 
+* Add `AP_PaySDK.framework` file into your project by adding the dependencies in Build Phases / Link Binary With Libraries and also add `Alamofire.framework` file into your project by adding the dependencies in Build Phases / Link Binary With Libraries or add using  cocoapods as 
 
   ```
-    pod 'Material'
+    pod 'Alamofire'
     
   ```
  
 * Or use CocoaPods. CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit https://guides.cocoapods.org/using/using-cocoapods.html for more detail. To integrate PaySDK into your Xcode project using CocoaPods, specify it in your Podfile:
 
   ```
-    pod 'AP_PaySDK', '2.6.04'
+    pod 'AP_PaySDK', '2.6.12'
     
   ```
  
@@ -260,6 +260,16 @@ Payment Methods Query | [Payment Methods Query](https://github.com/asiapay-lib/p
             }
     }
     
+```
+
+# Set card networks and capabilities (ApplePay only)
+
+Set available card scheme or capabilities for payment transaction on ApplePay as below
+
+```
+var supportedNetworksData :[PKPaymentNetwork] = [.visa, .masterCard, .discover, .amex, .JCB]
+
+var merchantCapabilitiesData : PKMerchantCapability = [.capability3DS, .capabilityCredit, .capabilityDebit, .capabilityEMV]
 ```
 
 # Related Sample

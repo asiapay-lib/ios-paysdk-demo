@@ -10,6 +10,7 @@ import UIKit
 import AP_PaySDK
 import Eureka
 import NVActivityIndicatorView
+import PassKit
 
 
 class ViewController: FormViewController {
@@ -443,7 +444,9 @@ class ViewController: FormViewController {
                                         showCloseButton: false,
                                         showToolbar: true,
                                         webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: [],
+                                        supportedNetworksData: [])
         if form1?.allSections[0][3].baseValue != nil {
             paySDK.paymentDetails.cardDetails = CardDetails(cardHolderName: (form1?.allSections[0][4].baseValue as? String) ?? "",
                                                             cardNo: (form1?.allSections[0][3].baseValue as? String) ?? "",
@@ -481,7 +484,9 @@ class ViewController: FormViewController {
                                         showCloseButton: true,
                                         showToolbar: true,
                                         webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: [],
+                                        supportedNetworksData: [])
 //        paySDK.paymentDetails = PayData(channelType: PayChannel.WEBVIEW,
 //                                            envType: EnvType.SANDBOX,
 //                                            amount :"100",
@@ -502,6 +507,8 @@ class ViewController: FormViewController {
     
     @IBAction func  processWechat(sender: String) {
         var extraData = getValues()
+        var supportedNetworksData :[PKPaymentNetwork]!
+        var merchantCapabilitiesData : PKMerchantCapability!
         if sender == "APPLEPAY" {
             extraData = ["apple_countryCode" : "HK",
                          "apple_currencyCode" : "HKD",
@@ -512,15 +519,23 @@ class ViewController: FormViewController {
                          "apple_requiredBillingAddressFields" : "",
                          "apple_merchant_name" : "Demo",
                          "apple_merchantId" : "com.merchant.asiapay.applepay.demo"]
+            supportedNetworksData = [.visa, .masterCard, .discover, .amex, .JCB]
+            merchantCapabilitiesData = [.capability3DS, .capabilityCredit, .capabilityDebit, .capabilityEMV]
         } else if sender == "WECHATAPP" {
             extraData = [
                 "wechatUniversalLink": "https://paydollarmobileapp/"
             ]
+            supportedNetworksData = []
+            merchantCapabilitiesData = []
         } else if sender == "OCTOPUS" {
             extraData = ["eVoucher": "T",
                          "eVClassCode": "0001"]
+            supportedNetworksData = []
+            merchantCapabilitiesData = []
         } else if sender == "FPS" {
              extraData = ["fpsQueryUrl" : "https://fps.paydollar.com/api/fpsQrUrl?encrypted="]
+            supportedNetworksData = []
+            merchantCapabilitiesData = []
         }
         else {
             extraData = ["apple_countryCode" : "HK",
@@ -549,7 +564,9 @@ class ViewController: FormViewController {
                                         showCloseButton: false,
                                         showToolbar: true,
                                         webViewClosePrompt: "",
-                                        extraData :  extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: merchantCapabilitiesData,
+                                        supportedNetworksData: supportedNetworksData)
         paySDK.process()
     }
     
@@ -572,7 +589,9 @@ class ViewController: FormViewController {
                                         showCloseButton: false,
                                         showToolbar: true,
                                         webViewClosePrompt: "",
-                                        extraData :  extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: [],
+                                        supportedNetworksData: [])
         paySDK.process()
     }
     
@@ -595,7 +614,9 @@ class ViewController: FormViewController {
                                         showCloseButton: false,
                                         showToolbar: true,
                                         webViewClosePrompt: "Do you really want to close?",
-                                        extraData: extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: [],
+                                        supportedNetworksData: [])
         
         paySDK.paymentDetails.callBackParam = CallBackParam(successUrl : "DemoApp://success",
                                                             cancelUrl : "DemoApp://cancel",
@@ -631,7 +652,9 @@ class ViewController: FormViewController {
                                         showCloseButton: false,
                                         showToolbar: true,
                                         webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: [],
+                                        supportedNetworksData: [])
     
         paySDK.query(action: Action.TX_QUERY.rawValue) //"TX_QUERY")
     }
@@ -655,7 +678,9 @@ class ViewController: FormViewController {
                                         showCloseButton: false,
                                         showToolbar: true,
                                         webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: [],
+                                        supportedNetworksData: [])
     paySDK.query(action: "PAYMENT_METHOD")
     }
     
@@ -678,7 +703,9 @@ class ViewController: FormViewController {
                                         showCloseButton: false,
                                         showToolbar: true,
                                         webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData)
+                                        extraData :  extraData,
+                                        merchantCapabilitiesData: [],
+                                        supportedNetworksData: [])
         if form1?.allSections[0][3].baseValue != nil {
             paySDK.paymentDetails.cardDetails = CardDetails(cardHolderName: (form1?.allSections[0][4].baseValue as? String) ?? "",
                                                             cardNo: (form1?.allSections[0][3].baseValue as? String) ?? "",

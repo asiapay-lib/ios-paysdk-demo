@@ -28,6 +28,8 @@
 /* Begin PBXFileReference section */
 		181F2B4C247284CA00193F25 /* VASController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VASController.swift; sourceTree = "<group>"; };
 		4246A6160CE4AE02FD41658C /* Pods_DemoApp_Objc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp_Objc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47E28304284DA97300EBA6C0 /* AP_PaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AP_PaySDK.framework; path = ../../../../../AP_PaySDK.framework; sourceTree = "<group>"; };
+		47E2830A284DAAAC00EBA6C0 /* AP_PaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AP_PaySDK.framework; path = "../../../../../../Downloads/PaySDK-2.6.02/AP_PaySDK.framework"; sourceTree = "<group>"; };
 		4EAC12FD3C0FC4BAC1596694 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		69629D21DF1904DA713B24E1 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8069D0852411046100C240DA /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,8 @@
 		1AF21D83B66035FF0040171A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47E28304284DA97300EBA6C0 /* AP_PaySDK.framework */,
+				47E2830A284DAAAC00EBA6C0 /* AP_PaySDK.framework */,
 				69629D21DF1904DA713B24E1 /* Pods_DemoApp.framework */,
 				4246A6160CE4AE02FD41658C /* Pods_DemoApp_Objc.framework */,
 			);
@@ -511,6 +515,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZDNLBDFMG6;
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,6 +526,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -529,6 +536,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZDNLBDFMG6;
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,6 +547,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};
