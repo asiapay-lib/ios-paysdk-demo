@@ -547,6 +547,8 @@ class ViewController: FormViewController {
                          "apple_requiredBillingAddressFields" : "",
                          "apple_merchant_name" : "Demo",
                          "apple_merchantId" : "com.merchant.asiapay.applepay.demo"]
+            supportedNetworksData = []
+            merchantCapabilitiesData = []
         }
         paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                         envType: EnvType.PRODUCTION,
