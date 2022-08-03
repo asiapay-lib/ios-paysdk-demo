@@ -267,6 +267,10 @@ var supportedNetworksData :[PKPaymentNetwork] = [.visa, .masterCard, .discover, 
 var merchantCapabilitiesData : PKMerchantCapability = [.capability3DS, .capabilityCredit, .capabilityDebit, .capabilityEMV]
 ```
 
+# White-label for boc pay app (BoCPay on WebView Call only)
+
+Add white-label url scheme of BoCPay app on LSApplicationQueriesSchemes property in info.plist.
+
 # Related Sample
 [DeepLink Demo](https://github.com/asiapay-lib/ios-deeplink-demo)
 

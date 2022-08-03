@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		181F2B4D247284CA00193F25 /* VASController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F2B4C247284CA00193F25 /* VASController.swift */; };
+		47FDC9CA289A185500B4D28C /* url_constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47FDC9C9289A185500B4D28C /* url_constants.plist */; };
+		47FDC9CC289A185D00B4D28C /* url_constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47FDC9CB289A185D00B4D28C /* url_constants.plist */; };
 		6CB358230FF666F6CED06A1B /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A452D7264900560BBADD4853 /* Pods_DemoApp.framework */; };
 		8069D0892411046100C240DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8069D0882411046100C240DA /* AppDelegate.swift */; };
 		8069D08D2411046100C240DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8069D08C2411046100C240DA /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		47E28304284DA97300EBA6C0 /* AP_PaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AP_PaySDK.framework; path = ../../../../../AP_PaySDK.framework; sourceTree = "<group>"; };
 		47E2830A284DAAAC00EBA6C0 /* AP_PaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AP_PaySDK.framework; path = "../../../../../../Downloads/PaySDK-2.6.02/AP_PaySDK.framework"; sourceTree = "<group>"; };
 		47EE40B628979021009B1114 /* AP_PaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AP_PaySDK.framework; sourceTree = "<group>"; };
+		47FDC9C9289A185500B4D28C /* url_constants.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = url_constants.plist; sourceTree = "<group>"; };
+		47FDC9CB289A185D00B4D28C /* url_constants.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = url_constants.plist; sourceTree = "<group>"; };
 		4F3ACFF796D92F2CBC67AF15 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		63819366EB11EB656B9403D5 /* Pods_DemoApp_Objc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp_Objc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8069D0852411046100C240DA /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +116,7 @@
 		8069D0872411046100C240DA /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				47FDC9C9289A185500B4D28C /* url_constants.plist */,
 				181F2B4C247284CA00193F25 /* VASController.swift */,
 				8069D0882411046100C240DA /* AppDelegate.swift */,
 				8069D08C2411046100C240DA /* ViewController.swift */,
@@ -127,6 +132,7 @@
 		80C48732241106F2004536BA /* DemoApp-Objc */ = {
 			isa = PBXGroup;
 			children = (
+				47FDC9CB289A185D00B4D28C /* url_constants.plist */,
 				80C48733241106F2004536BA /* AppDelegate.h */,
 				80C48734241106F2004536BA /* AppDelegate.m */,
 				80C4874A24110812004536BA /* paysdk.plist */,
@@ -238,6 +244,7 @@
 				8069D0952411046200C240DA /* LaunchScreen.storyboard in Resources */,
 				8069D0922411046200C240DA /* Assets.xcassets in Resources */,
 				80C4874D24110819004536BA /* paysdk.plist in Resources */,
+				47FDC9CA289A185500B4D28C /* url_constants.plist in Resources */,
 				8069D0902411046100C240DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +256,7 @@
 				80C48743241106F4004536BA /* LaunchScreen.storyboard in Resources */,
 				80C48740241106F4004536BA /* Assets.xcassets in Resources */,
 				80C4874B24110812004536BA /* paysdk.plist in Resources */,
+				47FDC9CC289A185D00B4D28C /* url_constants.plist in Resources */,
 				80C4873E241106F2004536BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
