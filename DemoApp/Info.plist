@@ -61,6 +61,7 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>alipayhk</string>
 		<string>ewabocpay</string>
 		<string>octopus</string>
 		<string>weixin</string>
