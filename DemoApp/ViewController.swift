@@ -40,7 +40,7 @@ class ViewController: FormViewController {
         let continueButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
         let labelCustomization = LabelCustomization("Courier", "FF0000", 14, "FF0000", "Courier", 20)
         let textboxCustomization = TextBoxCustomization("Courier", "#FF0000", 14, 5, "#d3d3d3", 4)
-        let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "Payment Page", "")
+        let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "Payment Page")//, "")
         
         try! customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
         try! customization.setButtonCustomization(resendButtonCustomization, .RESEND)
@@ -100,7 +100,7 @@ class ViewController: FormViewController {
                 $0.title = "card number"
                 $0.placeholder = "And numbers here"
                 $0.value = "4012000000020084"
-                $0.value = "4012000000020086"
+//                $0.value = "4012000000020086"
             }
             <<< TextRow() { row in
                 row.title = "card holder"
@@ -197,16 +197,16 @@ class ViewController: FormViewController {
                 row.value = ""
                 row.disabled = true
             }
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "Direct"
-            }.onCellSelection({ (str, row) in
-                self.processDirect(nil)
-            })
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "Webview"
-            }.onCellSelection({ (str, row) in
-                self.processHosted(nil)
-            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "Direct"
+//            }.onCellSelection({ (str, row) in
+//                self.processDirect(nil)
+//            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "Webview"
+//            }.onCellSelection({ (str, row) in
+//                self.processHosted(nil)
+//            })
             /*<<< ButtonRow() { (row: ButtonRow) in
                 row.title = "Installment Pay"
             }.onCellSelection({ (str, row) in
@@ -255,16 +255,16 @@ class ViewController: FormViewController {
                 self.navigationController?.pushViewController(addVC, animated: true)
                 //self.processHosted(nil)
             })*/
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "WECHATAPP"
-            }.onCellSelection({ (str, row) in
-                self.processWechat(sender: "WECHATAPP")
-            })
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "APPLEPAY"
-            }.onCellSelection({ (str, row) in
-                self.processWechat(sender: "APPLEPAY")
-            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "WECHATAPP"
+//            }.onCellSelection({ (str, row) in
+//                self.processWechat(sender: "WECHATAPP")
+//            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "APPLEPAY"
+//            }.onCellSelection({ (str, row) in
+//                self.processWechat(sender: "APPLEPAY")
+//            })
            <<< ButtonRow() { (row: ButtonRow) in
                 row.title = "THREEDS2"
             }.onCellSelection({ (str, row) in
@@ -275,41 +275,41 @@ class ViewController: FormViewController {
                 self.navigationController?.pushViewController(addVC, animated: true)
 //                self.threeDS()
             })
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "ALIPAYHKAPP"
-            }.onCellSelection({ (str, row) in
-                self.processWechat(sender: "ALIPAYHKAPP")
-            })
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "ALIPAYCNAPP"
-            }.onCellSelection({ (str, row) in
-                self.processWechat(sender: "ALIPAYHKAPP")
-            })
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "ALIPAYAPP"
-            }.onCellSelection({ (str, row) in
-                self.processWechat(sender: "ALIPAYAPP")
-            })
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "OCTOPUS"
-            }.onCellSelection({ (str, row) in
-                self.processWechat(sender: "OCTOPUS")
-            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "ALIPAYHKAPP"
+//            }.onCellSelection({ (str, row) in
+//                self.processWechat(sender: "ALIPAYHKAPP")
+//            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "ALIPAYCNAPP"
+//            }.onCellSelection({ (str, row) in
+//                self.processWechat(sender: "ALIPAYHKAPP")
+//            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "ALIPAYAPP"
+//            }.onCellSelection({ (str, row) in
+//                self.processWechat(sender: "ALIPAYAPP")
+//            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "OCTOPUS"
+//            }.onCellSelection({ (str, row) in
+//                self.processWechat(sender: "OCTOPUS")
+//            })
             /*<<< ButtonRow() { (row: ButtonRow) in
                 row.title = "FPS"
             }.onCellSelection({ (str, row) in
                 self.processWechat(sender: "FPS")
             })*/
-           <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "EASYPAYMENTFORM"
-            }.onCellSelection({ (str, row) in
-                self.eASYPAYMENTFORM()
-            })
-            <<< ButtonRow() { (row: ButtonRow) in
-                row.title = "PAYME"
-            }.onCellSelection({ (str, row) in
-                self.payMe()
-            })
+//           <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "EASYPAYMENTFORM"
+//            }.onCellSelection({ (str, row) in
+//                self.eASYPAYMENTFORM()
+//            })
+//            <<< ButtonRow() { (row: ButtonRow) in
+//                row.title = "PAYME"
+//            }.onCellSelection({ (str, row) in
+////                self.payMe()
+//            })
             <<< ButtonRow() { (row: ButtonRow) in
                 row.title = "TRANS QUERY"
             }.onCellSelection({ (str, row) in
@@ -441,12 +441,12 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
-                                        showCloseButton: false,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: [],
-                                        supportedNetworksData: [])
+//                                        showCloseButton: false,
+//                                        showToolbar: true,
+//                                        webViewClosePrompt: "Do you really wnt to close?",
+                                        extraData :  extraData)//,
+//                                        merchantCapabilitiesData: [],
+//                                        supportedNetworksData: [])
         if form1?.allSections[0][3].baseValue != nil {
             paySDK.paymentDetails.cardDetails = CardDetails(cardHolderName: (form1?.allSections[0][4].baseValue as? String) ?? "",
                                                             cardNo: (form1?.allSections[0][3].baseValue as? String) ?? "",
@@ -481,12 +481,12 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
-                                        showCloseButton: true,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: [],
-                                        supportedNetworksData: [])
+//                                        showCloseButton: true,
+//                                        showToolbar: true,
+//                                        webViewClosePrompt: "Do you really wnt to close?",
+                                        extraData :  extraData)
+//                                        merchantCapabilitiesData: [],
+//                                        supportedNetworksData: [])
 //        paySDK.paymentDetails = PayData(channelType: PayChannel.WEBVIEW,
 //                                            envType: EnvType.SANDBOX,
 //                                            amount :"100",
@@ -506,133 +506,16 @@ class ViewController: FormViewController {
     
     
     @IBAction func  processWechat(sender: String) {
-        var extraData = getValues()
-        var supportedNetworksData :[PKPaymentNetwork]!
-        var merchantCapabilitiesData : PKMerchantCapability!
-        if sender == "APPLEPAY" {
-            extraData = ["apple_countryCode" : "HK",
-                         "apple_currencyCode" : "HKD",
-                         "apple_billingContactEmail" : "abc@gmail.com",
-                         "apple_billingContactPhone" : "1234567890",
-                         "apple_billingContactGivenName" : "ABC",
-                         "apple_billingContactFamilyName" : "XYZ",
-                         "apple_requiredBillingAddressFields" : "",
-                         "apple_merchant_name" : "Demo",
-                         "apple_merchantId" : "com.merchant.asiapay.applepay.demo"]
-            supportedNetworksData = [.visa, .masterCard, .discover, .amex, .JCB]
-            merchantCapabilitiesData = [.capability3DS, .capabilityCredit, .capabilityDebit, .capabilityEMV]
-        } else if sender == "WECHATAPP" {
-            extraData = [
-                "wechatUniversalLink": "https://paydollarmobileapp/"
-            ]
-            supportedNetworksData = []
-            merchantCapabilitiesData = []
-        } else if sender == "OCTOPUS" {
-            extraData = ["eVoucher": "T",
-                         "eVClassCode": "0001"]
-            supportedNetworksData = []
-            merchantCapabilitiesData = []
-        } else if sender == "FPS" {
-             extraData = ["fpsQueryUrl" : "https://fps.paydollar.com/api/fpsQrUrl?encrypted="]
-            supportedNetworksData = []
-            merchantCapabilitiesData = []
-        }
-        else {
-            extraData = ["apple_countryCode" : "HK",
-                         "apple_currencyCode" : "HKD",
-                         "apple_billingContactEmail" : "abc@gmail.com",
-                         "apple_billingContactPhone" : "1234567890",
-                         "apple_billingContactGivenName" : "ABC",
-                         "apple_billingContactFamilyName" : "XYZ",
-                         "apple_requiredBillingAddressFields" : "",
-                         "apple_merchant_name" : "Demo",
-                         "apple_merchantId" : "com.merchant.asiapay.applepay.demo"]
-            supportedNetworksData = []
-            merchantCapabilitiesData = []
-        }
-        paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
-                                        envType: EnvType.PRODUCTION,
-                                        amount : (form1?.allSections[0][7].baseValue as? String) ?? "",
-                                        payGate: payGateForPG!,
-                                        currCode: currCode!,
-                                        payType: payType.NORMAL_PAYMENT,
-                                        orderRef: (form1?.allSections[0][2].baseValue as? String) ?? "",
-                                        payMethod: sender,
-                                        lang: Language.ENGLISH,
-                                        merchantId: (form1?.allSections[0][1].baseValue as? String) ?? "",
-                                        remark: "",
-                                        payRef: "",
-                                        resultpage: resultPage,
-                                        showCloseButton: false,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: merchantCapabilitiesData,
-                                        supportedNetworksData: supportedNetworksData)
-        paySDK.process()
+        
     }
     
     
     func eASYPAYMENTFORM() {
-        let extraData = getValues()
-        paySDK.paymentDetails = PayData(channelType: PayChannel.EASYPAYMENTFORM,
-                                        envType: EnvType.SANDBOX,
-                                        amount : (form1?.allSections[0][7].baseValue as? String) ?? "",
-                                        payGate: payGateForPG!,
-                                        currCode: currCode!,
-                                        payType: payType.NORMAL_PAYMENT,
-                                        orderRef: (form1?.allSections[0][2].baseValue as? String) ?? "",
-                                        payMethod: "ALL",
-                                        lang: Language.ENGLISH,
-                                        merchantId: (form1?.allSections[0][1].baseValue as? String) ?? "",
-                                        remark: "",
-                                        payRef: "",
-                                        resultpage: resultPage,
-                                        showCloseButton: false,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: [],
-                                        supportedNetworksData: [])
-        paySDK.process()
+        
     }
     
     
-    func payMe() {
-        let extraData = ["":""]
-        paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
-                                        envType: .SANDBOX, //.SANDBOX,
-                                        amount: (form1?.allSections[0][7].baseValue as? String) ?? "",
-                                        payGate: PayGate.PAYDOLLAR,//PayGate.PAYDOLLAR,
-                                        currCode: currCode!,//CurrencyCode.MYR,
-                                        payType: payType.NORMAL_PAYMENT,
-                                        orderRef: (form1?.allSections[0][2].baseValue as? String) ?? "",
-                                        payMethod: "PayMe",
-                                        lang: Language.ENGLISH,
-                                        merchantId: (form1?.allSections[0][1].baseValue as? String) ?? "",
-                                        remark: "123",
-                                        payRef: "",
-                                        resultpage: resultPage,
-                                        showCloseButton: false,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "Do you really want to close?",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: [],
-                                        supportedNetworksData: [])
-        
-        paySDK.paymentDetails.callBackParam = CallBackParam(successUrl : "DemoApp://success",
-                                                            cancelUrl : "DemoApp://cancel",
-                                                            errorUrl: "DemoApp://error",
-                                                            failUrl : "DemoApp://fail")
-        
-//        paysdk.paymentDetails.cardDetails = CardDetails(cardHolderName: "First Last",
-//                                                        cardNo: "4444333322221111",
-//                                                        expMonth: "12",
-//                                                        expYear: "2022",
-//                                                        securityCode: "124")
-        
-        paySDK.process()
-    }
+
     
     
    func transQuery() {
@@ -651,12 +534,12 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: self.payref,
                                         resultpage: resultPage,
-                                        showCloseButton: false,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: [],
-                                        supportedNetworksData: [])
+//                                        showCloseButton: false,
+//                                        showToolbar: true,
+//                                        webViewClosePrompt: "Do you really wnt to close?",
+                                        extraData :  extraData)
+//                                        merchantCapabilitiesData: [],
+//                                        supportedNetworksData: [])
     
         paySDK.query(action: Action.TX_QUERY.rawValue) //"TX_QUERY")
     }
@@ -677,12 +560,12 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
-                                        showCloseButton: false,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: [],
-                                        supportedNetworksData: [])
+//                                        showCloseButton: false,
+//                                        showToolbar: true,
+//                                        webViewClosePrompt: "Do you really wnt to close?",
+                                        extraData :  extraData)
+//                                        merchantCapabilitiesData: [],
+//                                        supportedNetworksData: [])
     paySDK.query(action: "PAYMENT_METHOD")
     }
     
@@ -702,12 +585,12 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
-                                        showCloseButton: false,
-                                        showToolbar: true,
-                                        webViewClosePrompt: "Do you really wnt to close?",
-                                        extraData :  extraData,
-                                        merchantCapabilitiesData: [],
-                                        supportedNetworksData: [])
+//                                        showCloseButton: false,
+//                                        showToolbar: true,
+//                                        webViewClosePrompt: "Do you really wnt to close?",
+                                        extraData :  extraData)
+//                                        merchantCapabilitiesData: [],
+//                                        supportedNetworksData: [])
         if form1?.allSections[0][3].baseValue != nil {
             paySDK.paymentDetails.cardDetails = CardDetails(cardHolderName: (form1?.allSections[0][4].baseValue as? String) ?? "",
                                                             cardNo: (form1?.allSections[0][3].baseValue as? String) ?? "",
@@ -803,7 +686,7 @@ class ViewController: FormViewController {
                 let continueButtonCustomization =   ButtonCustomization(fontName!, color1, intNum1, color2, intNum2)
                 let labelCustomization =            LabelCustomization.init(fontName!, color1, intNum1, color2, fontName!, intNum3)
                 let textboxCustomization =          TextBoxCustomization(fontName!, color1, intNum1, intNum2, color2, intNum2)
-                let toolBarCustomization =          ToolbarCustomization(fontName!, color1, intNum3, color2, "Secure Checkout", "")
+                let toolBarCustomization =          ToolbarCustomization(fontName!, color1, intNum3, color2, "Secure Checkout")//, "")
                 
                 try customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
                 try customization.setButtonCustomization(resendButtonCustomization, .RESEND)
