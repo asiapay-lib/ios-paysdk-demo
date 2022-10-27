@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <AP_PaySDK/AP_PaySDK.h>
 #import <AP_PaySDK/AP_PaySDK-Swift.h>
+#import <PassKit/PassKit.h>
 //#import "IQKeyboardManager.h"
 //@import IQKeyboardManagerSwift;
 @import AP_PaySDK;
@@ -202,10 +203,12 @@
                                                           remark:@"123"
                                                           payRef: @""
                                                       resultpage: resultPage
-//                                                 showCloseButton: true
-//                                                     showToolbar: true
-//                                              webViewClosePrompt: @"Do you want to close?"
-                                                       extraData:nil];
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil
+                                        merchantCapabilitiesData:nil
+                                           supportedNetworksData:nil];
     
     paySDK.paymentDetails.cardDetails = [[CardDetails alloc] initWithCardHolderName:@"Test Card" cardNo:cardNoText.text expMonth:expMonthText.text expYear:expYearText.text securityCode:securityCodeText.text];
     
@@ -240,10 +243,12 @@
                                                           remark:@"123"
                                                           payRef: @"" //@"7862308"
                                                       resultpage: resultPage
-//                                                 showCloseButton: true
-//                                                     showToolbar: true
-//                                              webViewClosePrompt: @"Do you want to close?"
-                                                       extraData:nil];
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil
+                                        merchantCapabilitiesData:nil
+                                           supportedNetworksData:nil];
     
     [paySDK queryWithAction:@"PAYMENT_METHOD"];
 }
@@ -263,10 +268,12 @@
                                                           remark:@"123"
                                                           payRef: @"" //@"7862308"
                                                       resultpage: resultPage
-//                                                 showCloseButton: true
-//                                                     showToolbar: true
-//                                              webViewClosePrompt: @"Do you want to close?"
-                                                       extraData:nil];
+                                                 showCloseButton: true
+                                                     showToolbar: true
+                                              webViewClosePrompt: @"Do you want to close?"
+                                                       extraData:nil
+                                        merchantCapabilitiesData:nil
+                                           supportedNetworksData:nil];
     
     [paySDK queryWithAction:@"TX_QUERY"];
 }

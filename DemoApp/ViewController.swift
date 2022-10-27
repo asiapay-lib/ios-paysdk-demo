@@ -40,7 +40,7 @@ class ViewController: FormViewController {
         let continueButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
         let labelCustomization = LabelCustomization("Courier", "FF0000", 14, "FF0000", "Courier", 20)
         let textboxCustomization = TextBoxCustomization("Courier", "#FF0000", 14, 5, "#d3d3d3", 4)
-        let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "Payment Page")//, "")
+        let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "Payment Page", "Close")//, "")
         
         try! customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
         try! customization.setButtonCustomization(resendButtonCustomization, .RESEND)
@@ -441,6 +441,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: true,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you want to close?",
 //                                        showCloseButton: false,
 //                                        showToolbar: true,
 //                                        webViewClosePrompt: "Do you really wnt to close?",
@@ -481,6 +484,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: true,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you want to close?",
 //                                        showCloseButton: true,
 //                                        showToolbar: true,
 //                                        webViewClosePrompt: "Do you really wnt to close?",
@@ -534,6 +540,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: self.payref,
                                         resultpage: resultPage,
+                                        showCloseButton: true,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you want to close?",
 //                                        showCloseButton: false,
 //                                        showToolbar: true,
 //                                        webViewClosePrompt: "Do you really wnt to close?",
@@ -560,6 +569,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: true,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you want to close?",
 //                                        showCloseButton: false,
 //                                        showToolbar: true,
 //                                        webViewClosePrompt: "Do you really wnt to close?",
@@ -585,6 +597,9 @@ class ViewController: FormViewController {
                                         remark: "",
                                         payRef: "",
                                         resultpage: resultPage,
+                                        showCloseButton: true,
+                                        showToolbar: true,
+                                        webViewClosePrompt: "Do you want to close?",
 //                                        showCloseButton: false,
 //                                        showToolbar: true,
 //                                        webViewClosePrompt: "Do you really wnt to close?",
@@ -686,7 +701,7 @@ class ViewController: FormViewController {
                 let continueButtonCustomization =   ButtonCustomization(fontName!, color1, intNum1, color2, intNum2)
                 let labelCustomization =            LabelCustomization.init(fontName!, color1, intNum1, color2, fontName!, intNum3)
                 let textboxCustomization =          TextBoxCustomization(fontName!, color1, intNum1, intNum2, color2, intNum2)
-                let toolBarCustomization =          ToolbarCustomization(fontName!, color1, intNum3, color2, "Secure Checkout")//, "")
+                let toolBarCustomization =          ToolbarCustomization(fontName!, color1, intNum3, color2, "Secure Checkout", "Close")//, "")
                 
                 try customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
                 try customization.setButtonCustomization(resendButtonCustomization, .RESEND)
