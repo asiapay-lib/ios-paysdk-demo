@@ -24,7 +24,7 @@
 ### SDK Side Call
 #### Swift Code
     Note: It is mandatory to add "apple_merchantId" in extraData.
-```
+```swift
 paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount: "10",
@@ -56,7 +56,7 @@ paySDK.process()
 
 #### Objective C Code
     Note: It is mandatory to add "apple_merchantId" in extraData.
-```
+```objc
 NSDictionary *arr = @{@"apple_countryCode" : @"HK",
                       @"apple_currencyCode" : @"HKD",
                       @"apple_billingContactEmail" : @"abc@gmail.com",
@@ -93,7 +93,7 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
 #### Swift Code
 
 - Generate eWalletPaymentData as 
-```
+```objc
 func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void)
 {
     var dicStr = ""
@@ -113,8 +113,10 @@ func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationView
 }
 ```
 - Pass the generated b64TokenStr to extraData as eWalletPaymentData 
+- Pass "T" string value to extraData as eWalletService
+- Pass "APPLEPAY" string value to extraData as eWalletBrand
 
-```
+```swift
 paysdk.paymentDetails = PayData(channelType: .DIRECT,
                                 envType: .SANDBOX,
                                 amount: "1",
@@ -131,12 +133,16 @@ paysdk.paymentDetails = PayData(channelType: .DIRECT,
                                 showCloseButton: false,
                                 showToolbar: false,
                                 webViewClosePrompt: "",
-                                extraData: ["eWalletPaymentData" : b64TokenStr])
+                                extraData: [
+                                    "eWalletPaymentData" : b64TokenStr,
+                                    "eWalletService": "T",
+                                    "eWalletBrand": "APPLEPAY"
+                                ])
 paysdk.process()
 ```
 #### Objective C Code
 - Generate eWalletPaymentData as 
-```
+```objc
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion
 {
      do {
@@ -155,26 +161,30 @@ paysdk.process()
 ```
 - Pass the generated b64TokenStr to extraData as eWalletPaymentData 
 
-```
-NSDictionary *arr = @{@"eWalletPaymentData" : b64TokenStr};
-                      
-paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelDIRECT
-                                         envType: EnvTypeSANDBOX
-                                         amount: @"1"
-                                         payGate: PayGatePAYDOLLAR
-                                         currCode: CurrencyCodeHKD
-                                         payType: payTypeNORMAL_PAYMENT
-                                         orderRef: [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000000000]
-                                         payMethod: @"APPLEPAY"
-                                         lang: LanguageENGLISH
-                                         merchantId: @"1"
-                                         remark: @"test"
-                                         payRef: @""
-                                         resultpage: resultPage
-                                         showCloseButton: false
-                                         showToolbar: false
-                                         webViewClosePrompt: @""
-                                         extraData: arr];
-
+```objc
+NSDictionary *arr = @{@"eWalletPaymentData" : b64TokenStr,
+                      @"eWalletService": @"T",
+                      @"eWalletBrand": @"APPLEPAY"
+};
+paysdk.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
+                                                     envType:EnvTypeSANDBOX
+                                                      amount:@"1"
+                                                     payGate:PayGatePAYDOLLAR
+                                                    currCode:CurrencyCodeHKD
+                                                     payType:payTypeNORMAL_PAYMENT
+                                                    orderRef:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000000000]
+                                                   payMethod:@""
+                                                        lang:LanguageENGLISH
+                                                  merchantId:merchantId
+                                                      remark:@"test"
+                                                      payRef: @""
+                                                  resultpage: resultPage
+                                             showCloseButton: true
+                                             showToolbar: true
+                                             webViewClosePrompt: @"Do you want to close?"
+                                                   extraData:arr
+                                    merchantCapabilitiesData:nil
+                                       supportedNetworksData:nil
+];
 [paySDK process];
 ```
