@@ -13,7 +13,7 @@
 
 ### Initialize PayData
 * Swift Code
-```
+```swift
 paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 envType: EnvType.SANDBOX,
                                 amount: 0.1,
@@ -32,17 +32,21 @@ paySDK.paymentDetails = PayData(channelType: PayChannel.DIRECT,
                                 webViewClosePrompt: "",
                                 extraData : [:])
 
+paysdk.paymentDetails.callBackParam = CallBackParam(successUrl: "xxx://abc//success",
+                                                    cancelUrl: "xxx://abc//cancelled",
+                                                    errorUrl: "xxx://abc//error",
+                                                    failUrl: "xxx://abc//fail")
 paySDK.process()
 
 ```
 * Objective C Code
-```
+```objc
 NSDictionary *dic =@{@"eVoucher": @"T",
                      @"eVClassCode": @"0001"};
                      
 extraData = [[NSMutableDictionary alloc] initWithDictionary: dic];
 ```
-```
+```objc
 paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW                                                            envType: EnvTypeSANDBOX 
                                          amount: @"2.0" 
                                          payGate: PayGatePAYDOLLAR 
@@ -60,12 +64,16 @@ paySDK.paymentDetails = [[PayData alloc] initWithChannelType: PayChannelWEBVIEW 
                                          webViewClosePrompt: @""
                                          extraData: nil];
 
+paySDK.paymentDetails.callBackParam = [[CallBackParam alloc] initWithsuccessUrl: @"xxx://abc//success"
+                                                             cancelUrl: @"xxx://abc//cancelled"
+                                                             errorUrl: @"xxx://abc//error"
+                                                             failUrl: @"xxx://abc//fail"];
 [paySDK process];
 ```
 
 ### Collect Payment Result
 
-```
+```swift
     func paymentResult(result: PayResult) {
      //process result here
      
