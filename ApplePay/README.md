@@ -124,7 +124,7 @@ paysdk.paymentDetails = PayData(channelType: .DIRECT,
                                 currCode: CurrencyCode.HKD,
                                 payType: payType.NORMAL_PAYMENT,
                                 orderRef: String(format: "%.0f", NSDate().timeIntervalSince1970 * 1000),
-                                payMethod: "",
+                                payMethod: "ALL",
                                 lang: Language.ENGLISH,
                                 merchantId: merchantId,
                                 remark: "123",
@@ -173,7 +173,7 @@ paysdk.paymentDetails = [[PayData alloc] initWithChannelType:PayChannelDIRECT
                                                     currCode:CurrencyCodeHKD
                                                      payType:payTypeNORMAL_PAYMENT
                                                     orderRef:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000000000]
-                                                   payMethod:@""
+                                                   payMethod:@"ALL"
                                                         lang:LanguageENGLISH
                                                   merchantId:merchantId
                                                       remark:@"test"
