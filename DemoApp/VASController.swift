@@ -27,6 +27,7 @@ class VASController: FormViewController {
     var viewController1 : ViewController?
     var isAcNameSameAsShip: String?
     var isAccountSuspisious: String?
+    var payRef: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -410,7 +411,8 @@ class VASController: FormViewController {
                     row.title = "payRef"
                     //row.value = "member03"
                     row.placeholder = "Enter text here"
-                    row.value = ""
+                    row.value = "11793068"
+                    row.value = self.payRef
 //                    row.add(rule: RuleRequired())
 //                    row.validationOptions = .validatesOnChange
                     }.cellUpdate { cell, row in

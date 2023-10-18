@@ -26,12 +26,17 @@ iOS Version: 11.0 and above
 
 * Download the latest sdk from https://github.com/asiapay-lib/paysdk-ios-lib
 
-* Add `AP_PaySDK.framework` file into your project by adding the dependencies in Build Phases / Link Binary With Libraries
+* Add `AP_PaySDK.framework` file into your project by adding the dependencies in Build Phases / Link Binary With Libraries and also add `Material.framework` file into your project by adding the dependencies in Build Phases / Link Binary With Libraries or add using  cocoapods as 
+
+  ```
+    pod 'Material'
+    
+  ```
  
 * Or use CocoaPods. CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit https://guides.cocoapods.org/using/using-cocoapods.html for more detail. To integrate PaySDK into your Xcode project using CocoaPods, specify it in your Podfile:
 
   ```
-    pod 'AP_PaySDK', '2.6.20'
+    pod 'AP_PaySDK', '2.5.08'
     
   ```
  
@@ -134,11 +139,9 @@ Also Merchant can disable ATS by
 Create the paysdk.plist file in the app with the following attributes      
     
 RSA Public Key(SDK_RSA_Publickey) :- Here you need to specify the RSA Public Key without header and Merchant_ID(optional)
-Doamin URL (Domain): Custom Domain name, The value of the key can be blank.
 e.g
 
-
-<img width="406" alt="Screenshot 2021-01-22 at 1 51 30 AM" src="https://user-images.githubusercontent.com/57219862/105408838-80ee2b80-5c55-11eb-8f5b-085ddbf88615.png">
+![image](https://user-images.githubusercontent.com/57220911/79866991-4112c300-83fb-11ea-82e9-4bf8a5575565.png)
 
 ### Initialize PaySdk
 
@@ -157,60 +160,6 @@ class ViewController: UIViewController , PaySDKDelegate
 paySDK.delegate = self
 
 
-#### For UICustomization
-
-* Swift Code
-```
-let customization = UiCustomization()
-
-let submitButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
-let resendButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
-let cancelButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
-let nextButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
-let continueButtonCustomization = ButtonCustomization("Courier", "#FF0000", 15, "#d3d3d3", 4)
-let labelCustomization = LabelCustomization("Courier", "FF0000", 14, "FF0000", "Courier", 20)
-let textboxCustomization = TextBoxCustomization("Courier", "#FF0000", 14, 5, "#d3d3d3", 4)
-let toolBarCustomization = ToolbarCustomization("Courier", "#FFFFFF", 20, "#000000", "Header Text", "Close Button Text"))
-
-try! customization.setButtonCustomization(submitButtonCustomization, .SUBMIT)
-try! customization.setButtonCustomization(resendButtonCustomization, .RESEND)
-try! customization.setButtonCustomization(cancelButtonCustomization, .CANCEL)
-try! customization.setButtonCustomization(nextButtonCustomization, .NEXT)
-try! customization.setButtonCustomization(continueButtonCustomization, .CONTINUE)
-try! customization.setLabelCustomization(labelCustomization)
-try! customization.setTextBoxCustomization(textboxCustomization)
-try! customization.setToolbarCustomization(toolBarCustomization)
-
-paySDK.uiCustomization = customization
-```
-
-* Objective C Code
-```
-UiCustomization *customization = [[UiCustomization alloc] init];
-
-ButtonCustomization *submitButtonCustomization = [[ButtonCustomization alloc] init:@"Courier" :@"#FF0000" :15 :@"#d3d3d3" :4];
-ButtonCustomization *resendButtonCustomization = [[ButtonCustomization alloc] init:@"Courier" :@"#FF0000" :15 :@"#d3d3d3" :4];
-ButtonCustomization *cancelButtonCustomization = [[ButtonCustomization alloc] init:@"Courier" :@"#FF0000" :15 :@"#d3d3d3" :4];
-ButtonCustomization *nextButtonCustomization = [[ButtonCustomization alloc] init:@"Courier" :@"#FF0000" :15 :@"#d3d3d3" :4];
-ButtonCustomization *continueButtonCustomization = [[ButtonCustomization alloc] init:@"Courier" :@"#FF0000" :15 :@"#d3d3d3" :4];
-LabelCustomization *labelCustomization = [[LabelCustomization alloc] init:@"Courier" :@"#FF0000" :14 :@"#FF0000":@"Courier" :20];
-TextBoxCustomization *textBoxCustomization = [[TextBoxCustomization alloc] init:@"Courier" :@"FF0000" :14 :4 :@"FF0000" :4];
-ToolbarCustomization *toolbarCustomization = [[ToolbarCustomization alloc] init:@"Courier" :@"#FFFFFF" :20 :@"#000000" :@"Payment Page", @"Close Button Text")];
- 
-NSError *err;
-
-[customization setLabelCustomization:labelCustomization error:&err];
-[customization setButtonCustomization:submitButtonCustomization : PaySDKButtonTypeSUBMIT error:&err];
-[customization setButtonCustomization:resendButtonCustomization : PaySDKButtonTypeRESEND error:&err];
-[customization setButtonCustomization:cancelButtonCustomization : PaySDKButtonTypeCANCEL error:&err];
-[customization setButtonCustomization:nextButtonCustomization : PaySDKButtonTypeNEXT error:&err];
-[customization setButtonCustomization:continueButtonCustomization : PaySDKButtonTypeCONTINUE error:&err];
-[customization setTextBoxCustomization:textBoxCustomization error:&err];
-[customization setToolbarCustomization:toolbarCustomization error:&err];
-
-[paySDK setUiCustomization:customization];
-```
-
 ### Initialize Payload
 
 * Use following payment services.
@@ -228,11 +177,9 @@ Member Pay | [Member Pay](https://github.com/asiapay-lib/paysdk-ios-demo/blob/ma
 Installment Pay | [Installmet Pay](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/InstallmentPay/README.md)
 Schedule Pay | [Schedule Pay](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/SchedulePay/README.md)
 Promo Pay | [Promo Pay](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/PromoPay/README.md)
-EVoucher | [EVoucher](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/EVoucher)
-PayMe |  [PayMe](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/PayMe/README.md)
 Transaction Query | [Transaction Query](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/TRANSQUERY)
 Payment Methods Query | [Payment Methods Query](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/PayMethod)
-
+EVoucher | [EVoucher](https://github.com/asiapay-lib/paysdk-ios-demo/blob/master/EVoucher)
 
 ### Collect Payment Result
 
@@ -242,34 +189,7 @@ Payment Methods Query | [Payment Methods Query](https://github.com/asiapay-lib/p
      
     }
     
-    //PaySDK will trigger payment result handle with failed status at WebView integration if the requested url scheme is failed to trigger.
-
-    //Merchant can prompt the message for this case and ignore the result handle if they received the error message started with "No app installed to handle the request"
-
-
-    func paymentResult(result: PayResult) {
-            if (result.errMsg.starts(with: "No app installed to handle the request with scheme")) {
-                    // ignore the result or prompt the app is not installed
-            } else {
-                    // process fail or success result here
-            }
-    }
-    
 ```
-
-# Set card networks and capabilities (ApplePay only)
-
-Set available card scheme or capabilities for payment transaction on ApplePay as below
-
-```
-var supportedNetworksData :[PKPaymentNetwork] = [.visa, .masterCard, .discover, .amex, .JCB]
-
-var merchantCapabilitiesData : PKMerchantCapability = [.capability3DS, .capabilityCredit, .capabilityDebit, .capabilityEMV]
-```
-
-# Whitelisting for boc pay app (BoCPay on WebView Call only)
-
-Add whitelist url scheme of BoCPay app on LSApplicationQueriesSchemes property in info.plist.
 
 # Related Sample
 [DeepLink Demo](https://github.com/asiapay-lib/ios-deeplink-demo)
