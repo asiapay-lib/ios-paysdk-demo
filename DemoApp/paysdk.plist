@@ -2,35 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SDK_RSA_PublicKey-88146271</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgBdpFphOiNncDYVeUU53xWuNA7wEVhNgPWlNf/pkA+t/Cu+0YigLA4q2+V5wkpSAAXM5pWnwL5L65vD/g/DfhsPLo6u3n9yXwvKhwPxgxtMnuoI1qNtZnCpg67gGueoIqSiSart1Uyd/OsAtK6ZeDKNWH9XS+pORphgARDkfA64JrzVI6iPpjQuOLIXlUr66wMj6zgjQYoiG4/2BvwI6/xG+PRUygaDKDtyzYOmV0YxF25PgHmWd/06dSvFx86wcVMIePvgwrS5DnE6rm4gaXqcuocazeMrG+RN/kz2XoRiiIWiXkH9/UjjenzVS8wKCruTRzeEEO+iReOYjmMOYBwIDAQAB</string>
-	<key>SDK_RSA_PublicKey-88155597</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1mh68SLDHZ9jKWHZ+wBhWcDWprtGgUP1dZlaTTdy0jrHpQzDgcbALzndxph2HnxbBx7uQReNlz5cZynCpLVd3rNXuvCERfE84jZrVXOgmZ0/3qrVz4+Y00tklVWYMy1tu2m2mEI3pd2vWDjG0QsFsC1CMH9ptHDfAHibkxSUxDrKuryBTwZ6givYSsve1cPRwF62fn+SCoT1cP3xTGszio9O780RaY67ikJ+ZqoVkeMgZ0PmeDAGuLomVQ1C4LnAVSZ0dTDj3XyACeOobWSWBQgBCwAvRSHTy/65o3f9GeR4nl11QDyu/elMaCXi6wJzXJKFjmVjtDV4Im2Ze9NwIDAQAB</string>
-	<key>SDK_RSA_PublicKey-88627221</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgBdpFphOiNncDYVeUU53xWuNA7wEVhNgPWlNf/pkA+t/Cu+0YigLA4q2+V5wkpSAAXM5pWnwL5L65vD/g/DfhsPLo6u3n9yXwvKhwPxgxtMnuoI1qNtZnCpg67gGueoIqSiSart1Uyd/OsAtK6ZeDKNWH9XS+pORphgARDkfA64JrzVI6iPpjQuOLIXlUr66wMj6zgjQYoiG4/2BvwI6/xG+PRUygaDKDtyzYOmV0YxF25PgHmWd/06dSvFx86wcVMIePvgwrS5DnE6rm4gaXqcuocazeMrG+RN/kz2XoRiiIWiXkH9/UjjenzVS8wKCruTRzeEEO+iReOYjmMOYBwIDAQAB</string>
-	<key>SDK_RSA_PublicKey-latest</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3hOz7Ekyf9YLDJRzUxJSeFfAxjIW/8Kd8v+tKK/Tc+3KyOHADlV7NYtlGDyoH5dCApUGHrxaYbzV6VzhC+kgQIaL7m
-jzMXX2uK03QT8Gmcef4C20fUMpy3hrIRH5MR32THNI3IiQG7upkuKhwQSwvEz0PxTeIznCBvSY/7
-wgCC6CUhHt+INZYaYpNRiozy39+yHXvgJu4N+I7VQpXJ6b4QjARk6nq6dBlUge4HokZgQzfKL86P
-JfzOjIDDKABkbZcZ96AL48E1jvgXlqV0ZA2k81IEVQzJxEiuERcPpSTXzB9H3f8+sx8DWxUO/CDI
-iNI+XOt54sBMelPEFQgEjkCQIDAQAB</string>
-	<key>SDK_RSA_PublicKey-88618350</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgBdpFphOiNncDYVeUU53xWuNA7wEVhNgPWlNf/pkA+t/Cu+0YigLA4q2+V5wkpSAAXM5pWnwL5L65vD/g/DfhsPLo6u3n9yXwvKhwPxgxtMnuoI1qNtZnCpg67gGueoIqSiSart1Uyd/OsAtK6ZeDKNWH9XS+pORphgARDkfA64JrzVI6iPpjQuOLIXlUr66wMj6zgjQYoiG4/2BvwI6/xG+PRUygaDKDtyzYOmV0YxF25PgHmWd/06dSvFx86wcVMIePvgwrS5DnE6rm4gaXqcuocazeMrG+RN/kz2XoRiiIWiXkH9/UjjenzVS8wKCruTRzeEEO+iReOYjmMOYBwIDAQAB</string>
-	<key>88154745- PROD</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs89HOz5/n1C5TEqgAfo6i2f/aNbN2dWcrKBX5QYmiUEcatSLIFOc2liJWPmBeFwfBTvg9M/wJtoyrz7SYVCQsvphx1oPO6lvopOTgtU9soLtEjY5NUGKm4sCqi7j82OvfcZoNe2J/a5b/LZl5BRlukaopl4FQLlkl6IMBbLOqiUB111AOx/qIoxLJoNRXjN57//+TLu4msjgqJFX20fBQxJ3VBkquQVKIffXxWkDuHZvdq8RBQu84WPME2c7ckRNkLpa7kxLhv06waQk8oZpao6lVuhDToGirm/6HiuGR1zrH1t7+gfVNy0kckXMkwPWQBA7p4MFw+iDaswI70WK/wIDAQAB</string>
-	<key>88618350-Prod</key>
-	<string></string>
-	<key>88145735-Sandbox</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgBdpFphOiNncDYVeUU53xWuNA7wEVhNgPWlNf/pkA+t/Cu+0YigLA4q2+V5wkpSAAXM5pWnwL5L65vD/g/DfhsPLo6u3n9yXwvKhwPxgxtMnuoI1qNtZnCpg67gGueoIqSiSart1Uyd/OsAtK6ZeDKNWH9XS+pORphgARDkfA64JrzVI6iPpjQuOLIXlUr66wMj6zgjQYoiG4/2BvwI6/xG+PRUygaDKDtyzYOmV0YxF25PgHmWd/06dSvFx86wcVMIePvgwrS5DnE6rm4gaXqcuocazeMrG+RN/kz2XoRiiIWiXkH9/UjjenzVS8wKCruTRzeEEO+iReOYjmMOYBwIDAQAB</string>
-	<key>88159621-Merchant MID China Mobile</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqumJrdWk/QNH5EAUm0lrGVsPrnptbNS+iU7QyfDn3qJzWJEp4d1calHKKN633PzvVs2hTEgjQkgxMHdVNdktvT1y7q44pXHbZQTsVQpVLwvPvx9kiKRj3XI22oRKTj91eFO7IeGsxiq6gLmVjOzwQkIKCpQZsLzC752OyBrNmN5cQsoL0EnVPJZE59MXvJv/QrRP74jTLkDxMaYzUlFE8mBZtuiq6t5RnhMmvsep8ErWy/017CdS/r27X5LPtNcfS/hTuxdNKDey4Re2uipO2TdGeG/IEXJ/rNB7q/GAN5UdzfWIFvQ3xUPMO+/mTDuD7kM+tXK69iofTnZgc3b41wIDAQAB</string>
 	<key>SDK_RSA_PublicKey</key>
-	<string>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgBdpFphOiNncDYVeUU53xWuNA7wEVhNgPWlNf/pkA+t/Cu+0YigLA4q2+V5wkpSAAXM5pWnwL5L65vD/g/DfhsPLo6u3n9yXwvKhwPxgxtMnuoI1qNtZnCpg67gGueoIqSiSart1Uyd/OsAtK6ZeDKNWH9XS+pORphgARDkfA64JrzVI6iPpjQuOLIXlUr66wMj6zgjQYoiG4/2BvwI6/xG+PRUygaDKDtyzYOmV0YxF25PgHmWd/06dSvFx86wcVMIePvgwrS5DnE6rm4gaXqcuocazeMrG+RN/kz2XoRiiIWiXkH9/UjjenzVS8wKCruTRzeEEO+iReOYjmMOYBwIDAQAB</string>
+	<string></string>
 	<key>Domain</key>
-	<string>https://test2.paydollar.com/</string>
-	<key>Domain2</key>
-	<string>https://test.paydollar.com/</string>
-	<key>Domain1</key>
-	<string>https://uat4.paydollar.com/</string>
+	<string></string>
 </dict>
 </plist>
