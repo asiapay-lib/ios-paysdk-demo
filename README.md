@@ -138,8 +138,9 @@ Also Merchant can disable ATS by
 
 Create the paysdk.plist file in the app with the following attributes      
     
-RSA Public Key(SDK_RSA_Publickey) :- Here you need to specify the value of certificate 
-URL Domain(Domain):- Here you need to specify the "Domain" URL. Value for the Domain is optinal.
+RSA Public Key(SDK_RSA_Publickey) :- Here you need to specify the value of certificate.
+ 
+URL Domain(Domain):- Here you need to specify the "Domain" URL. Value for the Domain is optional.
 e.g
 
 <img width="406" alt="Screenshot 2021-01-22 at 1 51 30 AM" src="https://user-images.githubusercontent.com/57219862/105408838-80ee2b80-5c55-11eb-8f5b-085ddbf88615.png">
